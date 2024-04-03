@@ -1,3 +1,5 @@
 "# Restoran" 
 
-isti problem ako hocu da koristim protect middleware, nece cookie da se posalje u browser kao i na projektu za second hand
+#little problem with middleware/cookie
+
+#Project involves creating a website for a restaurant with accommodation, allowing users to easily reserve rooms or submit inquiries. The site also provides a management interface for the manager to update offerings, manage reservations, and handle messages efficiently.
