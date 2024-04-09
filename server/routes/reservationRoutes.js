@@ -1,15 +1,16 @@
 import express from 'express'
 import { createReservation,checkAvailability,getReservedDatesForRoom,getReservationById, getReservations,updateReservationProcessedStatus, deleteReservation } from '../controllers/reservationController.js'
-import authenticateToken from '../middleware/authAdmin.js';
 
-const router=express.Router()
+//import {authenticateToken} from '../middleware/authAdmin.js';
 
-router.get('/reservations',getReservations)
-router.post('/checkAvailability',checkAvailability)
-router.post('/createReservation',createReservation)
-router.get('/getReservedDates/:id',getReservedDatesForRoom)
-router.get('/reservation/:id',getReservationById)
-router.put('/reservation/:id/processed',updateReservationProcessedStatus)
-router.put('/deleteReservation/:id',deleteReservation)
+const reservationRouter=express.Router()
 
-export default router
+reservationRouter.get('/reservations',getReservations)
+reservationRouter.post('/checkAvailability',checkAvailability)
+reservationRouter.post('/createReservation',createReservation)
+reservationRouter.get('/getReservedDates/:id',getReservedDatesForRoom)
+reservationRouter.get('/reservation/:id',getReservationById)
+reservationRouter.put('/reservation/:id/processed',updateReservationProcessedStatus)
+reservationRouter.put('/deleteReservation/:id',deleteReservation)
+
+export {reservationRouter}

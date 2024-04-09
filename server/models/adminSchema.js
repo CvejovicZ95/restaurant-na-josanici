@@ -14,10 +14,9 @@ const adminSchema=new mongoose.Schema({
   timestamps:{
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
   }
 })
 
 const Admin = mongoose.model('Admin',adminSchema)
 
-export default Admin
+export  {Admin}

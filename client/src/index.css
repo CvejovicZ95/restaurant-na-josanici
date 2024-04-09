@@ -1,16 +1,16 @@
 @font-face {
   font-family: 'Italianno';
-  src: url("../Italianno/Italianno-Regular.ttf") format('truetype');
+  src: url("../assets/Italianno/Italianno-Regular.ttf") format('truetype');
 }
 
 @font-face {
   font-family: 'Baguette';
-  src: url('../baguette/Baguette.ttf') format('truetype');
+  src: url('../assets/baguette/Baguette.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Baskerville';
-  src: url('../Baskervville/Baskervville-Italic.ttf') format('truetype');
+  src: url('../assets/Baskervville/Baskervville-Italic.ttf') format('truetype');
 }
 
 

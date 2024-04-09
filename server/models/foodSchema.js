@@ -21,10 +21,9 @@ const foodSchema= new mongoose.Schema({
   timestamps:{
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
   }
 })
 
 const Food = mongoose.model('Food',foodSchema)
 
-export default Food
+export {Food}

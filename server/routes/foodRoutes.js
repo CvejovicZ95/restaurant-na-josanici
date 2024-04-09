@@ -1,11 +1,11 @@
 import express from 'express'
 import { uploadFood,getAllFoodGroupedByCategory,deleteFood, updateFood } from '../controllers/foodController.js'
 
-const router=express.Router()
+const foodRouter=express.Router()
 
-router.post('/uploadFood',uploadFood)
-router.put('/updateFood/:id',updateFood)
-router.delete('/deleteFood/:id',deleteFood)
-router.get('/menu',getAllFoodGroupedByCategory)
+foodRouter.post('/uploadFood',uploadFood)
+foodRouter.put('/updateFood/:id',updateFood)
+foodRouter.delete('/deleteFood/:id',deleteFood)
+foodRouter.get('/menu',getAllFoodGroupedByCategory)
 
-export default router
+export {foodRouter}

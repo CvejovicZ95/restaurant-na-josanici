@@ -1,11 +1,11 @@
 import express from 'express'
 import { uploadWine,getAllWineGroupedByCategory,deleteWine, updateWine } from '../controllers/wineController.js'
 
-const router=express.Router()
+const wineRouter=express.Router()
 
-router.post('/uploadWine',uploadWine)
-router.put('/updateWine/:id',updateWine)
-router.delete('/deleteWine/:id',deleteWine)
-router.get('/wine',getAllWineGroupedByCategory)
+wineRouter.post('/uploadWine',uploadWine)
+wineRouter.put('/updateWine/:id',updateWine)
+wineRouter.delete('/deleteWine/:id',deleteWine)
+wineRouter.get('/wine',getAllWineGroupedByCategory)
 
-export default router
+export  {wineRouter}

@@ -51,4 +51,4 @@ const reservatationSchema = new mongoose.Schema({
 
 const Reservation = mongoose.model("Reservation", reservatationSchema);
 
-export default Reservation;
+export {Reservation};

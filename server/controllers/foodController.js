@@ -1,5 +1,5 @@
-import Food from "../models/foodSchema.js";
-
+import {Food} from "../models/foodSchema.js";
+import { addFood, updateFoodById, deleteFoodById } from "../service/foodService.js";
 export const getAllFoodGroupedByCategory = async (req, res) => {
   try {
     const allFood = await Food.find();
@@ -20,56 +20,33 @@ export const getAllFoodGroupedByCategory = async (req, res) => {
   }
 }
 
-export const uploadFood=async(req,res)=>{
-  try{
-    const {name,about,price,category}=req.body;
-
-    const newFood=new Food({
-      name,
-      about,
-      price,
-      category
-    })
-
-    await newFood.save()
-
-    res.status(201).json({
-      name:newFood.name,
-      about:newFood.about,
-      price:newFood.price,
-      category:newFood.category
-    })
-  }catch(error){
+export const uploadFood = async (req, res) => {
+  try {
+    const { name, about, price, category } = req.body;
+    const newFood = await addFood(name, about, price, category);
+    res.status(201).json(newFood);
+  } catch (error) {
     console.error('Error in uploadFood controller:', error.message);
     res.status(500).json('Server error');
   }
-}
+};
 
-export const deleteFood=async(req,res)=>{
-  try{
-    const deletedFood=await Food.findByIdAndDelete(req.params.id)
-
-    if(!deletedFood){
-      return res.status(404).json({message:'Artikal nije pronadjen'})
-    }
-
-    res.status(200).json({message:'Artikal uspesno izbrisan'})
-  }catch(error){
-    console.log('Error in deletedFood controller',error.message)
-    res.status(500).json({error:'Server error'})
+export const deleteFood = async (req, res) => {
+  try {
+    const deletedFood = await deleteFoodById(req.params.id);
+    res.status(200).json({ message: 'Food successfully deleted' });
+  } catch (error) {
+    console.error('Error in deleteFood controller:', error.message);
+    res.status(500).json('Server error');
   }
-}
+};
 
-export const updateFood=async(req,res)=>{
-  try{
-    const updatedFood=await Food.findByIdAndUpdate(req.params.id,{
-      name:req.body.name,
-      about:req.body.about,
-      price:req.body.price
-    })
-    res.status(200).json(updatedFood)
-  }catch(error){
-    console.log('Error in updateFood controller',error.message)
-    console.log('Server error')
+export const updateFood = async (req, res) => {
+  try {
+    const updatedFood = await updateFoodById(req.params.id, req.body);
+    res.status(200).json(updatedFood);
+  } catch (error) {
+    console.error('Error in updateFood controller:', error.message);
+    res.status(500).json('Server error');
   }
-}
+};

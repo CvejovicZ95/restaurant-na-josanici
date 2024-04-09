@@ -1,18 +1,26 @@
 import jwt from 'jsonwebtoken';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
+const currentDir = path.dirname(fileURLToPath(import.meta.url));
 
-const generateTokenAndSetCookie=(userId,res)=>{
-  const token=jwt.sign({userId},process.env.SECRET_KEY,{
-    expiresIn:'1d'
-  })
+const configPath = path.resolve(currentDir, '../config.json');
+const configData = fs.readFileSync(configPath);
+const config = JSON.parse(configData);
 
-  res.cookie('jwtToken',token,{
-    maxAge:24*60*60*1000,
-    httpOnly:true,
-    sameSite:'strict',
-   
+const generateTokenAndSetCookie = (userId, res) => {
+  const token = jwt.sign({ userId }, config.secret_key, {
+    expiresIn: '30m'
   });
-  return token
+
+  res.cookie('token', token, {
+    maxAge: 30 * 60 * 1000,
+    httpOnly: true,
+    sameSite: 'none',
+  });
+
+  return token;
 }
 
-export default generateTokenAndSetCookie
+export { generateTokenAndSetCookie };

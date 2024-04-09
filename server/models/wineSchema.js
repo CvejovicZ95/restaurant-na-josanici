@@ -21,10 +21,9 @@ const wineSchema= new mongoose.Schema({
   timestamps:{
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
   }
 })
 
 const Wine = mongoose.model('Wine',wineSchema)
 
-export default Wine
+export {Wine}

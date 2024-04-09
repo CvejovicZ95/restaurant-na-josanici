@@ -1,6 +1,6 @@
-import Admin from "../models/adminSchema.js";
 import bcrypt from 'bcrypt';
-import generateTokenAndSetCookie from "../utils/generateToken.js";
+import {Admin} from "../models/adminSchema.js";
+import {generateTokenAndSetCookie} from "../utils/generateToken.js";
 
 export const register=async(req,res)=>{
   try{

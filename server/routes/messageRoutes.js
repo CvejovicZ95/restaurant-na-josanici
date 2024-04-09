@@ -1,10 +1,10 @@
 import express from 'express'
 import { createMessage, deleteMessage, getMessages } from '../controllers/messageController.js'
 
-const router=express.Router()
+const messageRouter=express.Router()
 
-router.post('/createMessage',createMessage)
-router.get('/allMessages',getMessages)
-router.put('/deleteMessage/:id',deleteMessage)
+messageRouter.post('/createMessage',createMessage)
+messageRouter.get('/allMessages',getMessages)
+messageRouter.put('/deleteMessage/:id',deleteMessage)
 
-export default router
+export  {messageRouter}

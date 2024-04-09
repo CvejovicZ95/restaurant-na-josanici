@@ -1,11 +1,11 @@
 import express from 'express'
 import { createRoom,getAllRooms,getRoomById, updateRoom } from '../controllers/roomController.js'
 
-const router=express.Router()
+const roomRouter=express.Router()
 
-router.get('/allRooms',getAllRooms)
-router.get('/room/:id',getRoomById)
-router.put('/updateRoom/:id',updateRoom)
-router.post('/createRoom',createRoom)
+roomRouter.get('/allRooms',getAllRooms)
+roomRouter.get('/room/:id',getRoomById)
+roomRouter.put('/updateRoom/:id',updateRoom)
+roomRouter.post('/createRoom',createRoom)
 
-export default router
+export {roomRouter}

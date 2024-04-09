@@ -25,10 +25,9 @@ const roomSchema= new mongoose.Schema({
   timestamps:{
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
   }
 })
 
 const Room = mongoose.model('Room',roomSchema)
 
-export default Room
+export {Room}
