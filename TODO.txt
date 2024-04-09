@@ -1,0 +1,11 @@
+server:
+
+videti za logove, da li treba da ispisujem...
+server sam sredio sve sem toga, razdvojio service od controllora
+
+//ime baze ne znam da promenim!!!
+
+
+client: 
+
+tek treba da radim, uporedi netflix komentare i restroran komentare i sredi sve sta treba
