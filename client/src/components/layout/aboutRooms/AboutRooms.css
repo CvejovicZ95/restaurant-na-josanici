@@ -1,0 +1,66 @@
+.about-rooms{
+  background-color: #f2f2f2;
+  padding: 60px;
+  text-align: center;
+} 
+.about-rooms h1{
+  font-family: Italianno;
+  font-size: 46px;
+  text-align: center;
+  margin: 0;
+}
+.about-rooms h2{
+  font-family:"Cinzel", Sans-serif;
+  font-size: 36px;
+  text-align: center;
+  margin: 0;
+}
+.about-rooms p{
+  font-family:'Roboto Slab', Helvetica, Arial, sans-serif;
+  font-size: 20px;
+}
+.about-rooms button{
+    padding: 10px 20px;
+    background-color: #fff;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    font-size: 28px;
+    border: 1px solid black;
+    cursor: pointer;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.about-rooms button:hover{
+  background-color: wheat;
+  transition: 0.5s;
+}
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+  .about-rooms {
+    padding: 30px;
+    margin: 0;
+    text-align: center;
+    width: auto;
+  }
+  .about-rooms h1 {
+    font-size: 36px;
+  }
+  .about-rooms h2 {
+    font-size: 28px;
+  }
+  .about-rooms p {
+    text-align: center;
+  }
+  .about-rooms button {
+    font-size: 20px;
+  }
+  .room-images{
+    display: block;
+  }
+  .room-images img{
+    width: 100%;
+  }
+
+}

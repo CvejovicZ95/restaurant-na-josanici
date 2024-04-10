@@ -1,0 +1,52 @@
+.reservationInfo {
+  margin-bottom: 20px;
+}
+.details p {
+  margin-bottom: 10px;
+}
+
+.roomInfo p {
+  margin-bottom: 10px;
+}
+
+.contact-details {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.contact-details h2 {
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.contact-details span {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.contact-details svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+.icon{
+  font-size: 30px;
+  color: #45a049;
+}
+.backLink {
+  display: block;
+  margin-top: 20px;
+  color: black;
+  text-decoration: none;
+  text-align: center;
+  font-family:  Arial, Helvetica, sans-serif;
+  transition: 0.3s;
+}
+
+.backLink:hover {
+  transform: scale(1.2)
+}

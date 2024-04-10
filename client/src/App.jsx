@@ -1,12 +1,12 @@
-import Layout from "./components/Layout";
-import Contact from "./components/Contact";
-import Menu from "./components/Menu";
-import Wine from "./components/Wine";
-import Rooms from "./components/Rooms";
-import Reservation from "./components/Reservation";
-import ReservationDetails from "./components/ReservationDetails";
-import Admin from "./components/Admin";
-import AllReservations from "./components/AdminReservations";
+import {Layout} from "./components/layout/Layout"
+import {Contact} from "./components/contact/Contact";
+import {Menu} from "./components//menu/Menu";
+import {Wine} from "./components/menu/Wine";
+import {Rooms} from "./components/rooms/Rooms";
+import {Reservation} from "./components/reservations/Reservation";
+import {ReservationDetails} from "./components/reservations/ReservationDetails";
+import {Admin} from "./components/admin/Admin";
+import {AllReservations} from "./components/admin/AdminReservations";
 import {Navigate, Route,Routes} from 'react-router-dom'
 import { useAuthContext } from "./context/authContext";
 
@@ -36,4 +36,4 @@ function App() {
   );
 }
 
-export default App;
+export {App};

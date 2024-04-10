@@ -1,0 +1,164 @@
+.gallery-header,.rooms-header{
+  background-color: #f2f2f2;
+  text-align: center;
+}
+.gallery-header h1{
+  margin: 0;
+  font-family: Italianno;
+  font-size: 48px;
+}
+.gallery-header p{
+  margin: 0;
+  font-size: 48px;
+  font-family: 'Roboto Slab', Helvetica, Arial, sans-serif;
+  font-weight: bold;
+}
+.img-icon{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.gallery,.gallery-room {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(470px, 1fr));
+  grid-gap: 0;
+}
+
+.gallery img {
+  width: 100%;
+  height: 350px;
+  margin: -2px;
+}
+.gallery-room img{
+  width: 100%;
+  height: 450px;
+  margin: -2px;
+  transition: 0.5s;
+}
+
+.gallery-room img:hover{
+  transform: scale(1.03);
+  transition: 0.5s;
+  
+}
+.gallery img:hover{
+  filter: brightness(30%);
+}
+
+.image-container {
+  position: relative;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: Italianno;
+}
+
+/* Kada je miš iznad slike */
+.gallery img:hover {
+  filter: brightness(30%);
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Kada je miš iznad slike ili teksta */
+.image-container:hover .overlay-text {
+  opacity: 1;
+}
+/* Dodajemo efekat na sliku kada se pređe preko nje */
+.image-container:hover img {
+  filter: brightness(30%);
+  transition: filter 0.3s ease-in-out;
+}
+
+/* Dodajemo efekat na tekst overlay-a kada se pređe preko slike */
+.image-container:hover .overlay-text {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Ignorišemo promene na slici kada se pređe preko teksta */
+.overlay-text:hover {
+  pointer-events: none;
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+  .gallery {
+    display: block;
+  }
+  .gallery-header h1{
+    font-family: 'Italianno';
+    font-size: 28px;
+  }
+  .gallery-header p{
+    font-size: 28px;
+  }
+  .gallery img {
+    width: 100%;
+    height: auto;
+  }
+  .gallery img:hover{
+    filter: brightness(30%);
+  }
+  
+  .image-container {
+    position: relative;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 40px;
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    font-family: Italianno;
+  }
+  
+  /* Kada je miš iznad slike */
+  .gallery img:hover {
+    filter: brightness(30%);
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  /* Kada je miš iznad slike ili teksta */
+  .image-container:hover .overlay-text {
+    opacity: 1;
+  }
+  /* Dodajemo efekat na sliku kada se pređe preko nje */
+  .image-container:hover img {
+    filter: brightness(30%);
+    transition: filter 0.3s ease-in-out;
+  }
+  
+  /* Dodajemo efekat na tekst overlay-a kada se pređe preko slike */
+  .image-container:hover .overlay-text {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Ignorišemo promene na slici kada se pređe preko teksta */
+  .overlay-text:hover {
+    pointer-events: none;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .gallery{
+    display: block;
+  }
+  .image-container img{
+    width: 100%;
+    height: auto;
+  }
+}

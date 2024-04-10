@@ -2,14 +2,14 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import {connect} from './db/connectDB.js'
+import {connect} from "./src/db/connectDB.js"
 
-import {foodRouter} from './routes/foodRoutes.js'
-import {wineRouter} from './routes/wineRoutes.js'
-import {roomRouter} from './routes/roomRoutes.js'
-import {messageRouter} from './routes/messageRoutes.js'
-import {reservationRouter} from './routes/reservationRoutes.js'
-import {adminRouter} from './routes/adminRoutes.js'
+import {foodRouter} from "./src/routes/foodRoutes.js"
+import {wineRouter} from "./src/routes/wineRoutes.js"
+import {roomRouter} from "./src/routes/roomRoutes.js"
+import {messageRouter} from "./src/routes/messageRoutes.js"
+import {reservationRouter} from "./src/routes/reservationRoutes.js"
+import {adminRouter} from "./src/routes/adminRoutes.js"
  
 
 const app=express();

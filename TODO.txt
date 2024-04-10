@@ -1,11 +1,49 @@
-server:
+SERVER:
 
-videti za logove, da li treba da ispisujem...
-server sam sredio sve sem toga, razdvojio service od controllora
+logs if needed?? Ask Bogi 
 
-//ime baze ne znam da promenim!!!
+database name (dont know how to change name)
 
 
-client: 
+CLIENT: 
 
-tek treba da radim, uporedi netflix komentare i restroran komentare i sredi sve sta treba
+components:
+About rooms - fixed
+Admin- fixed
+AdminReservation - languages import!!!(need to do) 
+Contact- info display from config file
+Footer-info display from config file too
+Gallery-separated singleImage component, used loop to display all
+Header- OK
+HomePage-OK
+Layout-OK
+Menu-OK
+Reservation-OK
+ReservationDetails-OK
+Rooms-reviews moved to config, gallery separated singlImage component and used loop
+Wine-OK
+
+context:
+authContext- fixed to not use localstorage direct in components
+
+hooks:
+Error handlers fixed to use ? : instead of true/false
+
+UseAdminLogin - fetch moved
+UseAdminLogout- fetch moved
+CreateMessages-fetch moved
+GetFood- fetch moved
+GetWine- fetch moved
+GetReservation- fetch moved
+GetRoom-fetch moved
+GetRoomById-fetch moved
+CreateReservation-fetch moved
+
+
+
+
+
+
+
+
+

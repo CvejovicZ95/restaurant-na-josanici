@@ -1,27 +1,21 @@
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useAuthContext } from '../context/authContext';
+import { logoutUser } from '../api/adminApi';
 
-const useLogout=()=>{
-  const {setAuthUser}=useAuthContext()
+const useLogout = () => {
+  const { logout } = useAuthContext();
 
-  const logout=async()=>{
-    try{
-      const res=await fetch('http://localhost:4500/api/logout',{
-        method:'POST',
-        headers:{'Content-Type':"application/json"},
-      })
-      const data=await res.json()
-      if(data.error){
-        throw new Error(data.error)
-      }
-      localStorage.removeItem('josanica-admin')
-      setAuthUser(null)
-    }catch(error){
-      toast.error(error.mesasge)
+  const logoutHandler = async () => {
+    try {
+      await logoutUser(); 
+      logout();
+    } catch (error) {
+      toast.error(error.message);
     }
-  }
-  return {logout}
-}
+  };
 
-export default useLogout
+  return { logoutHandler };
+};
+
+export { useLogout };
