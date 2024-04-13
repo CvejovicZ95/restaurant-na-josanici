@@ -35,7 +35,7 @@ const useGetWine = () => {
       setWine(data);
       setMessage('Artikal uspešno dodat');
     } catch (error) {
-      setMessage(error.message);
+      toast.error(error.message);
     }
   };
 
@@ -45,7 +45,7 @@ const useGetWine = () => {
       const updatedWine = wine.map(item => item._id === id ? { ...item, name: updatedName, about: updatedAbout, price: updatedPrice } : item);
       setWine(updatedWine);
     } catch (error) {
-      setMessage(error.message);
+      toast.error(error.message);
     }
   };
 

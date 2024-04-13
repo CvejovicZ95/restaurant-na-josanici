@@ -1,5 +1,6 @@
 import {Food} from "../models/foodSchema.js";
 import { addFood, updateFoodById, deleteFoodById } from "../service/foodService.js";
+import { logger } from "../../logger.js";
 
 export const getAllFoodGroupedByCategory = async (req, res) => {
   try {
@@ -13,10 +14,9 @@ export const getAllFoodGroupedByCategory = async (req, res) => {
       }
       foodByCategory[food.category].push(food);
     });
-
     res.status(200).json(foodByCategory);
   } catch (error) {
-    console.log('Error in getAllFoodGroupedByCategory controller', error.message);
+    logger.error('Error in getAllFoodGroupedByCategory controller:', error.message);
     res.status(500).json({ error: 'Server error' });
   }
 }
@@ -27,7 +27,6 @@ export const uploadFood = async (req, res) => {
     const newFood = await addFood(name, about, price, category);
     res.status(201).json(newFood);
   } catch (error) {
-    console.error('Error in uploadFood controller:', error.message);
     res.status(500).json('Server error');
   }
 };
@@ -37,7 +36,6 @@ export const deleteFood = async (req, res) => {
     const deletedFood = await deleteFoodById(req.params.id);
     res.status(200).json({ message: 'Food successfully deleted' });
   } catch (error) {
-    console.error('Error in deleteFood controller:', error.message);
     res.status(500).json('Server error');
   }
 };
@@ -47,7 +45,6 @@ export const updateFood = async (req, res) => {
     const updatedFood = await updateFoodById(req.params.id, req.body);
     res.status(200).json(updatedFood);
   } catch (error) {
-    console.error('Error in updateFood controller:', error.message);
     res.status(500).json('Server error');
   }
 };
