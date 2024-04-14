@@ -9,7 +9,8 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import "./MenuAndWine.css";
-const Menu = () => {
+
+export const Menu = () => {
   const {authUser}=useAuthContext()
 
   const { food,deleteFoodHandler,uploadFoodHandler,updateFoodHandler,message } = useGetFood();
@@ -181,5 +182,3 @@ const Menu = () => {
     </div>
   );
 };
-
-export {Menu};

@@ -2,7 +2,7 @@ import "./Gallery.css";
 import {ImageContainer} from "./SingleImage";
 
 
-const Gallery = () => {
+export const Gallery = () => {
   const foodItems = [
     { src: "images/hrana1.jpg", alt: "hrana1", overlayText: "Miks mesa u pogači" },
     { src: "images/hrana2.jpg", alt: "hrana2", overlayText: "Rolovano belo meso" },
@@ -27,5 +27,3 @@ const Gallery = () => {
     </div>
   );
 };
-
-export {Gallery};

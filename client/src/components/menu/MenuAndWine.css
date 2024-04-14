@@ -27,7 +27,6 @@
   font-family:'Baskerville';
 }
 
-/* Stilovi za naziv i cenu hrane */
 .food-name-price,.wine-name-price {
   display: flex;
   justify-content: space-between;
@@ -37,26 +36,25 @@
   font-weight: bold;
 }
 
-/* Stilovi za naziv hrane */
 .food-name,.wine-name {
   font-size: 20px;
 }
 
-/* Stilovi za cenu hrane */
+
 .food-price,.wine-price {
   font-size: 20px;
   color: #666;
 }
 
-/* Stilovi za opis hrane */
+
 .about-food,.about-wine {
   color: #888;
   margin-top: 5px;
 }
 .wine-grid,.menu-grid {
   display: grid;
-  grid-template-columns: auto 1fr auto; /* Prva i poslednja kolona za slike, a srednja za spisak vina */
-  align-items: center; /* Centriranje po vertikali */
+  grid-template-columns: auto 1fr auto; 
+  align-items: center; 
 }
 
 .wine-image-left,

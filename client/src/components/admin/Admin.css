@@ -41,9 +41,9 @@
 .admin-form input,
 .admin-form button {
   display: block;
-  width: calc(100% - 22px); /* Računa širinu smanjenu za padding i border */
+  width: calc(100% - 22px); 
   padding: 10px;
-  margin: 0 auto 15px; /* 0 na vrhu, automatski na bočnim stranama, 15px na dnu */
+  margin: 0 auto 15px; 
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;

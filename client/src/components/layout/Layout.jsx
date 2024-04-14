@@ -4,7 +4,7 @@ import {Gallery} from "../Layout/Gallery/Gallery.jsx"
 import {AboutRooms} from "../Layout/AboutRooms/AboutRooms.jsx"
 import {Footer} from "../Layout/Footer/Footer.jsx"
 
-const Layout=()=>{
+export const Layout=()=>{
   return(
     <div className="App">
       <Header/>
@@ -15,5 +15,3 @@ const Layout=()=>{
     </div>
   )
 }
-
-export {Layout}

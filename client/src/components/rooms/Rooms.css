@@ -39,22 +39,22 @@
 }
 .reserve-button button {
   margin: auto;
-  width: 40%; /* Širina dugmeta */
-  background-color: #29ad2d; /* Boja pozadine */
-  border: none; /* Uklonite ivice */
-  padding: 10px; /* Podešavanje prostora unutar dugmeta */
-  color: white; /* Boja teksta */
-  cursor: pointer; /* Promena kursora na pokazivač kada se pređe preko dugmeta */
-  border-radius: 5px; /* Zaobljeni ivici */
-  text-align: center; /* Centriranje teksta */
-  text-decoration: none; /* Uklanjanje podvučenosti */
-  display: block; /* Blok element */
-  font-size: 16px; /* Veličina fonta */
+  width: 40%; 
+  background-color: #29ad2d; 
+  border: none; 
+  padding: 10px; 
+  color: white;
+  cursor: pointer; 
+  border-radius: 5px;
+  text-align: center; 
+  text-decoration: none; 
+  display: block; 
+  font-size: 16px; 
   transition:  0.3s
 }
 
 .reserve-button button:hover {
-  background-color: #52a156; /* Boja pozadine na hover */
+  background-color: #52a156; 
   color: black;
   transition: 0.3s;
 }
@@ -97,23 +97,20 @@
   transition: filter 0.3s ease-in-out;
 }
 
-/* Kada je miš iznad slike ili teksta */
 .room:hover .overlay-text {
   opacity: 1;
 }
-/* Dodajemo efekat na sliku kada se pređe preko nje */
+
 .room:hover img {
   filter: brightness(30%);
   transition: filter 0.3s ease-in-out;
 }
 
-/* Dodajemo efekat na tekst overlay-a kada se pređe preko slike */
 .room:hover .overlay-text {
   opacity: 1;
   transition: opacity 0.3s ease;
 }
 
-/* Ignorišemo promene na slici kada se pređe preko teksta */
 .overlay-text:hover {
   pointer-events: none;
 }

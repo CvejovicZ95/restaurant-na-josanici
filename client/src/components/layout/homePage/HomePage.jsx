@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./HomePage.css";
 
-const HomePage = () => {
+export const HomePage = () => {
   useEffect(() => {
     const slideElements = document.querySelectorAll(".slide-in");
 
@@ -36,5 +36,3 @@ const HomePage = () => {
     </div>
   );
 };
-
-export {HomePage};

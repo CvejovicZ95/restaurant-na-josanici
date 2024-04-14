@@ -4,7 +4,7 @@ import {useGetReservationInfo} from '../../hooks/useGetReservationInfo';
 import {useCreateMessage} from "../../hooks/useCreateMessage"
 import "./AdminReservation.css";
 
-const AllReservations = () => {
+export const AllReservations = () => {
   const { allReservations,markReservationAsProcessedHandler,deleteReservationHandler } = useGetReservationInfo();
   
   const {allMessages,deleteMessageHandler}=useCreateMessage()
@@ -87,5 +87,3 @@ const AllReservations = () => {
     </>
   );
 };
-
-export {AllReservations};

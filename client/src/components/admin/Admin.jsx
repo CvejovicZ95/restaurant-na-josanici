@@ -4,7 +4,7 @@ import { ToastContainer } from "react-toastify"
 import 'react-toastify/dist/ReactToastify.css';
 import "./Admin.css";
 
-const Admin=()=>{
+export const Admin=()=>{
 
   const [username,setUsername]=useState('')
   const [password,setPassword]=useState('')
@@ -37,5 +37,3 @@ const Admin=()=>{
     </div>
   )
 }
-
-export {Admin}

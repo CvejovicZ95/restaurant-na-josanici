@@ -8,7 +8,7 @@ import {useLogout} from "../../../hooks/useAdminLogout"
 import { MdClose } from "react-icons/md";
 import "./Header.css";
 
-const Header = () => {
+export const Header = () => {
   const {authUser}=useAuthContext()
   const {logoutHandler}=useLogout()
 
@@ -64,6 +64,3 @@ const Header = () => {
     </header>
   )
 }
-
-export  {Header};
-

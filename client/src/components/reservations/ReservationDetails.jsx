@@ -7,7 +7,7 @@ import {scrollToTop} from "../../hooks/useScrollToTop";
 
 import "./ReservationDetails.css";
 
-const ReservationDetails = () => {
+export const ReservationDetails = () => {
   const { id } = useParams(); 
   const { reservation } = useGetReservationInfo(id);
 
@@ -50,5 +50,3 @@ const ReservationDetails = () => {
     </>
   );
 };
-
-export {ReservationDetails};

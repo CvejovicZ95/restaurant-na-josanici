@@ -1,46 +1,37 @@
-import {Header} from "../Layout/Header/Header.jsx"
-import {Footer} from "../Layout/Footer/Footer.jsx"
-
+// Imports
+import React, { useState } from "react";
+import { Header } from "../Layout/Header/Header.jsx";
+import { Footer } from "../Layout/Footer/Footer.jsx";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";
-
-import { useState } from "react"
-import {useCreateMessage} from "../../hooks/useCreateMessage.js"
-import { ToastContainer } from "react-toastify"
+import { useCreateMessage } from "../../hooks/useCreateMessage.js";
+import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
 import "./Contact.css";
-import config from '../../config.json'
+import config from '../../config.json';
 
-const Contact = () => {
-  const [inputs, setInputs] = useState({
-    firstLastName: '',
-    email: '',
-    phoneNumber: '',
-    question: ''
-  })
+export const Contact = () => {
+  const [firstLastName, setFirstLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [question, setQuestion] = useState('');
+  const [completed, setCompleted] = useState(false);
 
-  
-  const { message, createMessageHandler } = useCreateMessage()
-  const [completed,setCompleted]=useState(false)
+  const { message, createMessageHandler } = useCreateMessage();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createMessageHandler(inputs);
-      setInputs({
-        firstLastName: '',
-        email: '',
-        phoneNumber: '',
-        question: ''
-      });
-      setCompleted(true)
-      setTimeout(() => {
-        setCompleted(false);
-      }, 5000);
-    }
-    
-  
+    await createMessageHandler({ firstLastName, email, phoneNumber, question });
+    setFirstLastName('');
+    setEmail('');
+    setPhoneNumber('');
+    setQuestion('');
+    setCompleted(true);
+    setTimeout(() => {
+      setCompleted(false);
+    }, 5000);
+  };
 
   return (
     <div>
@@ -53,33 +44,32 @@ const Contact = () => {
             <input
               type='text'
               placeholder='Ime i prezime'
-              value={inputs.firstLastName}
-              onChange={(e) => setInputs({ ...inputs, firstLastName: e.target.value })}
+              value={firstLastName}
+              onChange={(e) => setFirstLastName(e.target.value)}
             />
             <input
               type='email'
               placeholder='Email'
-              value={inputs.email}
-              onChange={(e) => setInputs({ ...inputs, email: e.target.value })}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <input
               type='text'
               placeholder='+381 64 2233555'
-              value={inputs.phoneNumber}
-              onChange={(e) => setInputs({ ...inputs, phoneNumber: e.target.value })}
+              value={phoneNumber}
+              onChange={(e) => setPhoneNumber(e.target.value)}
             />
             <textarea
               className='textarea'
               type='text'
               placeholder='Vaš upit'
-              value={inputs.question}
-              onChange={(e) => setInputs({ ...inputs, question: e.target.value })}
+              value={question}
+              onChange={(e) => setQuestion(e.target.value)}
             />
             <button type='submit'>Pošalji upit</button>
           </form>
-          {completed && message && <p style={{ color: 'green', textAlign:'center' }}>Poruka uspešno poslata</p>}
+          {completed && message && <p style={{ color: 'green', textAlign: 'center' }}>Poruka uspešno poslata</p>}
           <ToastContainer />
-          
         </div>
         <div className='contact-info'>
           <FaPhone className='react-icons' />
@@ -95,5 +85,3 @@ const Contact = () => {
     </div>
   )
 }
-
-export {Contact}

@@ -19,7 +19,7 @@ import { useAuthContext } from '../../context/authContext';
 import config from '../../config.json'
 import { SingleImageRoom } from "./SingleImageRoom.jsx";
 
-const Rooms=()=>{
+export const Rooms=()=>{
   const {authUser}=useAuthContext()
 
   const {rooms,updateRoomHandler}=useGetRoom()
@@ -185,5 +185,3 @@ const Rooms=()=>{
     </>
   )
 }
-
-export {Rooms}

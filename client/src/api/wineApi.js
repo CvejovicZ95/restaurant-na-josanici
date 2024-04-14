@@ -1,7 +1,8 @@
 import config from '../config.json'
 const apiUrl = config.API_BASE_URL
 
-const getWine = async () => {
+
+export const getWine = async () => {
   try {
     const res = await fetch(`${apiUrl}/api/wine`);
     const data = await res.json();
@@ -14,7 +15,7 @@ const getWine = async () => {
   }
 };
 
-const deleteWine = async (id) => {
+export const deleteWine = async (id) => {
   try {
     await fetch(`${apiUrl}/api/deleteWine/${id}`, {
       method: 'DELETE',
@@ -27,26 +28,10 @@ const deleteWine = async (id) => {
   }
 };
 
-const uploadWine = async ({ name, price, about, category }) => {
-  const validCategories = [
-    'Penušava vina',
-    'Bela vina',
-    'Rose',
-    'Crvena vina',
-    'Dezertna vina',
-    'Otvorena vina',
-  ];
-
-  if (!validCategories.includes(category)) {
-    throw new Error('Ispravno unesite kategoriju');
-  }
-
-  if (!name || !price || !category) {
-    throw new Error('Popunite sva obavezna polja');
-  }
-
-  
+export const uploadWine = async ({name, price, about, category}) => {
   try {
+    validateWine(name, price, category);
+
     const res = await fetch(`${apiUrl}/api/uploadWine`, {
       method: 'POST',
       headers: {
@@ -63,7 +48,7 @@ const uploadWine = async ({ name, price, about, category }) => {
   }
 };
 
-const updateWine = async (id, updatedName, updatedAbout, updatedPrice) => {
+export const updateWine = async (id, updatedName, updatedAbout, updatedPrice) => {
   try {
     await fetch(`${apiUrl}/api/updateWine/${id}`, {
       method: 'PUT',
@@ -77,4 +62,22 @@ const updateWine = async (id, updatedName, updatedAbout, updatedPrice) => {
   }
 };
 
-export { getWine, deleteWine, uploadWine, updateWine };
+
+const validateWine = (name, price, category) => {
+  const validCategories = [
+    'Penušava vina',
+    'Bela vina',
+    'Rose',
+    'Crvena vina',
+    'Dezertna vina',
+    'Otvorena vina',
+  ];
+
+  if (!validCategories.includes(category)) {
+    throw new Error('Ispravno unesite kategoriju');
+  }
+
+  if (!name || !price || !category) {
+    throw new Error('Popunite sva obavezna polja');
+  }
+};

@@ -53,12 +53,11 @@
 
 @media only screen and (min-width: 250px) and (max-width: 768px) {
   .nav-ul {
-    /* Skrivanje navigacije po default-u na manjim ekranima */
     display: block;
     padding: 20px;
     text-align: start;
-    top: 60px; /* Visina header-a */
-    z-index: 998; /* Z-index malo manji od gumba za otvaranje */
+    top: 60px;
+    z-index: 998;
     background:none;
     background-color: rgba(255, 255, 255, 1);
     
@@ -79,12 +78,12 @@
     max-width: 100px;
   }
   .menu-toggle {
-    display: block; /* Prikazivanje gumba sa tri crtice */
+    display: block; 
     cursor: pointer;
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 999; /* Postavljanje gumba iznad navigacije */
+    z-index: 999; 
   }
 
   .bar {
@@ -92,7 +91,7 @@
     height: 3px;
     background-color: black;
     margin: 5px auto;
-    transition: all 0.3s ease; /* Animacija za gumb */
+    transition: all 0.3s ease; 
   }
 
   .menu-toggle.open .bar:nth-child(1) {
@@ -194,23 +193,23 @@
     padding: 0 30px 0 30px;
   }
   .nav-li::after {
-    content: ''; /* Dodajemo sadržaj pseudo-elementa */
-    position: absolute; /* Postavljamo apsolutnu poziciju */
-    left: 0; /* Poravnavamo početak podvlačenja sa početkom teksta */
-    bottom: -3px; /* Podešavamo udaljenost podvlačenja od teksta */
-    width: 100%; /* Postavljamo širinu podvlačenja da bude jednaka širini teksta */
-    height: 2px; /* Postavljamo visinu podvlačenja */
-    background-color: black; /* Boja podvlačenja */
-    visibility: hidden; /* Podrazumevano je skriveno */
-    transform: scaleX(0); /* Skaliramo po X osi na nulu kako bismo ga inicijalno sakrili */
-    transition: all 0.3s ease-in-out; /* Dodajemo prelazni efekat */
+    content: ''; 
+    position: absolute; 
+    left: 0; 
+    bottom: -3px; 
+    width: 100%; 
+    height: 2px; 
+    background-color: black; 
+    visibility: hidden; 
+    transform: scaleX(0); 
+    transition: all 0.3s ease-in-out; 
   }
   
   .nav-li:hover::after {
-    visibility: visible; /* Postavljamo vidljivost podvlačenja na hover */
-    transform: scaleX(1); /* Skaliramo po X osi na 1 kako bismo ga prikazali */
+    visibility: visible; 
+    transform: scaleX(1); 
   }
   .nav-toggle {
-    display: none; /* Dugme za otvaranje se podrazumevano ne prikazuje */
+    display: none; 
   }
 }

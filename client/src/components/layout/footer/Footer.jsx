@@ -9,7 +9,7 @@ import {scrollToTop} from "../../../hooks/useScrollToTop"
 import config from "../../../config.json"
 import "./Footer.css";
 
-const Footer=()=>{
+export const Footer=()=>{
   const date=new Date().getFullYear()
 
   return(
@@ -32,5 +32,3 @@ const Footer=()=>{
     </footer>
   )
 }
-
-export {Footer}

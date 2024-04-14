@@ -8,7 +8,7 @@ import { useAuthContext } from '../../context/authContext.js';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Wine = () => {
+export const Wine = () => {
   const {authUser}=useAuthContext()
 
   const { wine, deleteWineHandler, uploadWineHandler, updateWineHandler, message } = useGetWine(); 
@@ -175,5 +175,3 @@ const Wine = () => {
     </div>
   )
 }
-
-export {Wine};

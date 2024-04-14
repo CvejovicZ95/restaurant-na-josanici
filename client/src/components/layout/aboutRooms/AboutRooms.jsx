@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom"
 import {scrollToTop} from "../../../hooks/useScrollToTop";
 import "./AboutRooms.css";
-const AboutRooms=()=>{
+
+export const AboutRooms=()=>{
 
   return(
       <div className="about-rooms">
@@ -17,4 +18,3 @@ const AboutRooms=()=>{
   )
 }
 
-export {AboutRooms}

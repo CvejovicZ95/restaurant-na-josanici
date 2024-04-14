@@ -28,7 +28,43 @@ export const deleteFood = async (id) => {
   }
 };
 
-export const uploadFood = async ({ name, price, about, category }) => {
+export const uploadFood = async ({name, price, about, category}) => {
+  try {
+    validateFood(name, price, category);
+
+    const res = await fetch(`${apiUrl}/api/uploadFood`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, price, about, category })
+    });
+    const data = await res.json();
+    if (data.error) {
+      throw new Error(data.error);
+    }
+    return true;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+
+export const updateFood = async (id, updatedName, updatedAbout, updatedPrice) => {
+  try {
+    await fetch(`${apiUrl}/api/updateFood/${id}`, {
+      method: "PUT",
+      headers: { 'Content-Type': "application/json" },
+      body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice })
+    });
+    return true;
+  } catch (error) {
+    throw new Error(error.message);
+  }
+};
+
+
+const validateFood = (name, price, category) => {
   const validCategories = [
     'Doručak',
     'Hladna predjela',
@@ -48,35 +84,5 @@ export const uploadFood = async ({ name, price, about, category }) => {
 
   if (!name || !price || !category) {
     throw new Error('Popunite sva obavezna polja');
-  }
-  
-  try {
-    const res = await fetch(`${apiUrl}/api/uploadFood`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ name, price, about, category })
-    });
-    const data = await res.json();
-    if (data.error) {
-      throw new Error(data.error);
-    }
-    return true;
-  } catch (error) {
-    throw new Error(error.message);
-  }
-};
-
-export const updateFood = async (id, updatedName, updatedAbout, updatedPrice) => {
-  try {
-    await fetch(`${apiUrl}/api/updateFood/${id}`, {
-      method: "PUT",
-      headers: { 'Content-Type': "application/json" },
-      body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice })
-    });
-    return true;
-  } catch (error) {
-    throw new Error(error.message);
   }
 };

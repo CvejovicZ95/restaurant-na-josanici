@@ -65,7 +65,7 @@ const deleteReservation = async (id) => {
   }
 };
 
-const checkAvailability = async ({ arrivalDate, departureDate, roomId }) => {
+const checkAvailability = async ({arrivalDate, departureDate, roomId}) => {
   try {
     const res = await fetch(`${apiUrl}/api/checkAvailability`, {
       method: 'POST',

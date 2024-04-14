@@ -95,26 +95,26 @@
   }
 
   .contact-info {
-    margin-top: 20px; /* Prilagodite margine */
+    margin-top: 20px; 
   }
 
   .contact h1 {
-    font-size: 20px; /* Prilagodite veličinu naslova */
-    margin-bottom: 10px; /* Prilagodite margine */
+    font-size: 20px;
+    margin-bottom: 10px; 
   }
 
   .contact p {
-    font-size: 12px; /* Prilagodite veličinu teksta */
-    margin-bottom: 20px; /* Prilagodite margine */
+    font-size: 12px; 
+    margin-bottom: 20px;
   }
 
   .contact-info .react-icons {
-    font-size: 30px; /* Prilagodite veličinu ikona */
-    padding: 10px; /* Prilagodite prostor oko ikona */
+    font-size: 30px; 
+    padding: 10px; 
   }
 
   .contact-info span {
-    font-size: 18px; /* Prilagodite veličinu teksta */
+    font-size: 18px; 
   }
   .ask-form {
     display: flex;
@@ -127,8 +127,8 @@
   .ask-form input[type='text'],
   .ask-form input[type='email'],
   .ask-form textarea {
-    width: 100%; /* Širina polja je 100% na manjim ekranima */
-    max-width: 90%; /* Maksimalna širina polja */
+    width: 100%; 
+    max-width: 90%; 
   }
 }
 
@@ -138,31 +138,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto; /* Visina se automatski prilagođava sadržaju */
-    margin-top: 10px; /* Smanjite marginu za veći prostor na manjim ekranima */
+    height: auto; 
+    margin-top: 10px; 
   }
 
   .contact-info {
-    margin-top: 20px; /* Prilagodite margine */
+    margin-top: 20px; 
   }
 
   .contact h1 {
-    font-size: 30px; /* Prilagodite veličinu naslova */
-    margin-bottom: 10px; /* Prilagodite margine */
+    font-size: 30px; 
+    margin-bottom: 10px; 
   }
 
   .contact p {
-    font-size: 18px; /* Prilagodite veličinu teksta */
-    margin-bottom: 20px; /* Prilagodite margine */
+    font-size: 18px;
+    margin-bottom: 20px; 
   }
 
   .contact-info .react-icons {
-    font-size: 30px; /* Prilagodite veličinu ikona */
-    padding: 10px; /* Prilagodite prostor oko ikona */
+    font-size: 30px; 
+    padding: 10px; 
   }
 
   .contact-info span {
-    font-size: 18px; /* Prilagodite veličinu teksta */
+    font-size: 18px; 
   }
   .ask-form {
     display: flex;
@@ -175,8 +175,8 @@
   .ask-form input[type='text'],
   .ask-form input[type='email'],
   .ask-form textarea {
-    width: 100%; /* Širina polja je 100% na manjim ekranima */
-    max-width: 100%; /* Maksimalna širina polja */
+    width: 100%; 
+    max-width: 100%; 
   }
 
 }
@@ -187,31 +187,31 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto; /* Visina se automatski prilagođava sadržaju */
-    margin-top: 10px; /* Smanjite marginu za veći prostor na manjim ekranima */
+    height: auto; 
+    margin-top: 10px; 
   }
 
   .contact-info {
-    margin-top: 20px; /* Prilagodite margine */
+    margin-top: 20px;
   }
 
   .contact h1 {
-    font-size: 30px; /* Prilagodite veličinu naslova */
-    margin-bottom: 10px; /* Prilagodite margine */
+    font-size: 30px;
+    margin-bottom: 10px; 
   }
 
   .contact p {
-    font-size: 18px; /* Prilagodite veličinu teksta */
-    margin-bottom: 20px; /* Prilagodite margine */
+    font-size: 18px; 
+    margin-bottom: 20px; 
   }
 
   .contact-info .react-icons {
-    font-size: 30px; /* Prilagodite veličinu ikona */
-    padding: 10px; /* Prilagodite prostor oko ikona */
+    font-size: 30px; 
+    padding: 10px; 
   }
 
   .contact-info span {
-    font-size: 18px; /* Prilagodite veličinu teksta */
+    font-size: 18px;
   }
   .ask-form {
     display: flex;
@@ -224,7 +224,7 @@
   .ask-form input[type='text'],
   .ask-form input[type='email'],
   .ask-form textarea {
-    width: 100%; /* Širina polja je 100% na manjim ekranima */
-    max-width: 100%; /* Maksimalna širina polja */
+    width: 100%; 
+    max-width: 100%; 
   }
 }
