@@ -1,5 +1,5 @@
-import {Header} from "../layout/header/Header.jsx"
-import {Footer} from "../layout/footer/Footer.jsx"
+import {Header} from "../Layout/Header/Header.jsx"
+import {Footer} from "../Layout/Footer/Footer.jsx"
 import {useGetWine} from '../../hooks/useGetWine.js'; 
 import { useState,useEffect } from 'react';
 

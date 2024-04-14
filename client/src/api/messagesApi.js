@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 export const createMessage = async ({ firstLastName, email, phoneNumber, question }) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/createMessage`, {
+    const res = await fetch(`${apiUrl}/api/createMessage`, {
       method: "POST",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ firstLastName, email, phoneNumber, question })
@@ -19,7 +20,7 @@ export const createMessage = async ({ firstLastName, email, phoneNumber, questio
 
 export const fetchAllMessages = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/allMessages`);
+    const res = await fetch(`${apiUrl}/api/allMessages`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -32,7 +33,7 @@ export const fetchAllMessages = async () => {
 
 export const deleteMessage = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/deleteMessage/${id}`, {
+    const res = await fetch(`${apiUrl}/api/deleteMessage/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

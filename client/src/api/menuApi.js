@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 export const getFood = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/menu`);
+    const res = await fetch(`${apiUrl}/api/menu`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -15,7 +16,7 @@ export const getFood = async () => {
 
 export const deleteFood = async (id) => {
   try {
-    await fetch(`${API_BASE_URL}/api/deleteFood/${id}`, {
+    await fetch(`${apiUrl}/api/deleteFood/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -50,7 +51,7 @@ export const uploadFood = async ({ name, price, about, category }) => {
   }
   
   try {
-    const res = await fetch(`${API_BASE_URL}/api/uploadFood`, {
+    const res = await fetch(`${apiUrl}/api/uploadFood`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -69,7 +70,7 @@ export const uploadFood = async ({ name, price, about, category }) => {
 
 export const updateFood = async (id, updatedName, updatedAbout, updatedPrice) => {
   try {
-    await fetch(`${API_BASE_URL}/api/updateFood/${id}`, {
+    await fetch(`${apiUrl}/api/updateFood/${id}`, {
       method: "PUT",
       headers: { 'Content-Type': "application/json" },
       body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice })

@@ -1,5 +1,5 @@
-import {Header} from "../layout/header/Header.jsx"
-import {Footer} from "../layout/footer/Footer.jsx"
+import {Header} from "../Layout/Header/Header.jsx"
+import {Footer} from "../Layout/Footer/Footer.jsx"
 import {useGetReservationInfo} from '../../hooks/useGetReservationInfo';
 import {useCreateMessage} from "../../hooks/useCreateMessage"
 import "./AdminReservation.css";

@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 const getReservation = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/reservation/${id}`);
+    const res = await fetch(`${apiUrl}/api/reservation/${id}`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -15,7 +16,7 @@ const getReservation = async (id) => {
 
 const getAllReservations = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/reservations`);
+    const res = await fetch(`${apiUrl}/api/reservations`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -28,7 +29,7 @@ const getAllReservations = async () => {
 
 const markReservationAsProcessed = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/reservation/${id}/processed`, {
+    const res = await fetch(`${apiUrl}/api/reservation/${id}/processed`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -47,7 +48,7 @@ const markReservationAsProcessed = async (id) => {
 
 const deleteReservation = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/deleteReservation/${id}`, {
+    const res = await fetch(`${apiUrl}/api/deleteReservation/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

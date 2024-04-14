@@ -12,3 +12,6 @@
 {"level":"info","message":"Reservation fetched by ID successfully","timestamp":"2024-04-13T14:40:35.086Z"}
 {"level":"info","message":"Admin logged in successfully:","timestamp":"2024-04-13T14:40:59.627Z"}
 {"level":"info","message":"Reservation processed status updated successfully","timestamp":"2024-04-13T14:41:07.098Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-04-14T11:43:11.558Z"}
+{"level":"info","message":"Admin logged in successfully:","timestamp":"2024-04-14T11:45:06.962Z"}
+{"level":"info","message":"Admin logged out successfully","timestamp":"2024-04-14T11:45:07.958Z"}

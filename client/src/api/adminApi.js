@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 export const loginUser = async (username, password) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/login`, {
+    const res = await fetch(`${apiUrl}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password }),
@@ -19,7 +20,7 @@ export const loginUser = async (username, password) => {
 
 export const logoutUser = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/logout`, {
+    const res = await fetch(`${apiUrl}/api/logout`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
     });

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import {Header} from "../layout/header/Header.jsx"
-import {Footer} from "../layout/footer/Footer.jsx"
+import {Header} from "../Layout/Header/Header.jsx"
+import {Footer} from "../Layout/Footer/Footer.jsx"
 import {scrollToTop} from "../../hooks/useScrollToTop";
 
 import { FaAngleDoubleLeft } from "react-icons/fa";

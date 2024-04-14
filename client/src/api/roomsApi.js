@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 const getAllRooms = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/allRooms`);
+    const res = await fetch(`${apiUrl}/api/allRooms`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -15,7 +16,7 @@ const getAllRooms = async () => {
 
 const updateRoom = async (id, updatedName, updatedAbout, updatedPrice, updatedInfo) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/updateRoom/${id}`, {
+    const res = await fetch(`${apiUrl}/api/updateRoom/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

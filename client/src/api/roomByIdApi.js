@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 const getRoomById = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/room/${id}`);
+    const res = await fetch(`${apiUrl}/api/room/${id}`);
     const data = await res.json();
     return data;
   } catch (error) {
@@ -12,7 +13,7 @@ const getRoomById = async (id) => {
 
 const getReservedDates = async (id) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/getReservedDates/${id}`);
+    const res = await fetch(`${apiUrl}/api/getReservedDates/${id}`);
     const data = await res.json();
     return data;
   } catch (error) {

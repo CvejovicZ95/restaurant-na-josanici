@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 const getWine = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/wine`);
+    const res = await fetch(`${apiUrl}/api/wine`);
     const data = await res.json();
     if (data.error) {
       throw new Error(data.error);
@@ -15,7 +16,7 @@ const getWine = async () => {
 
 const deleteWine = async (id) => {
   try {
-    await fetch(`${API_BASE_URL}/api/deleteWine/${id}`, {
+    await fetch(`${apiUrl}/api/deleteWine/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
@@ -46,7 +47,7 @@ const uploadWine = async ({ name, price, about, category }) => {
 
   
   try {
-    const res = await fetch(`${API_BASE_URL}/api/uploadWine`, {
+    const res = await fetch(`${apiUrl}/api/uploadWine`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -64,7 +65,7 @@ const uploadWine = async ({ name, price, about, category }) => {
 
 const updateWine = async (id, updatedName, updatedAbout, updatedPrice) => {
   try {
-    await fetch(`${API_BASE_URL}/api/updateWine/${id}`, {
+    await fetch(`${apiUrl}/api/updateWine/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'

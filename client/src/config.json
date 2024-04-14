@@ -13,5 +13,7 @@
   "review1":"All was good! Comfortable bed, warm room and hot water.",
   "review2":"Sve je bilo savrseno.Odlična lokacija, dobar smeštaj, ukusni obroci…",
   "review3":"Прекрасное расположение, в центре. Очень чисто. Доброжелательный персонал . Аквапарк и оздоровительный комплекс с термальными водами располагается в 100м . Замечательный ресторан.",
-  "review4":"Veoma ljubazni i gostoprimlivi domaćini sa izuzetnim restoranom i odličnom hranom."
+  "review4":"Veoma ljubazni i gostoprimlivi domaćini sa izuzetnim restoranom i odličnom hranom.",
+
+  "API_BASE_URL": "http://localhost:4500"
 }

@@ -5,7 +5,7 @@ Project involves creating a website for a restaurant with accommodation, allowin
 
 ## Features:
 - **Authentication:**
-  - For authentication, Jason Web Tokens (JWT) are used.
+  - For authentication, Json Web Tokens (JWT) are used.
   - JWT is saved in local storage and sent on request where necessary.
 - **Users:**
   - Create Reservations

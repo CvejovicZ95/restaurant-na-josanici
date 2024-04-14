@@ -1,8 +1,9 @@
-const API_BASE_URL = 'http://localhost:4500';
+import config from '../config.json'
+const apiUrl = config.API_BASE_URL
 
 const checkAvailability = async ({ arrivalDate, departureDate, roomId }) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/checkAvailability`, {
+    const res = await fetch(`${apiUrl}/api/checkAvailability`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ arrivalDate, departureDate, roomId })
@@ -16,7 +17,7 @@ const checkAvailability = async ({ arrivalDate, departureDate, roomId }) => {
 
 const createSingleReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/createReservation`, {
+    const res = await fetch(`${apiUrl}/api/createReservation`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId })
