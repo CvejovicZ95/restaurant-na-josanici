@@ -1,10 +1,10 @@
 # Restaraunt website
 
-## Project Overview:
+## Project Overview
 
 Project involves creating a website for a restaurant with accommodation, allowing users to easily reserve rooms or submit inquiries. The site also provides a management interface for the manager to update offerings, manage reservations, and handle messages efficiently.
 
-## Features:
+## Features
 
 - **Authentication:**
   - For authentication, Json Web Tokens (JWT) are used.
@@ -21,7 +21,7 @@ Project involves creating a website for a restaurant with accommodation, allowin
   - Manage Menu(add, delete, update)
   - Manage Rooms(price, info)
 
-## Technologies Used:
+## Technologies Used
 
 - React
 - JavaScript
@@ -30,14 +30,14 @@ Project involves creating a website for a restaurant with accommodation, allowin
 - MongoDB
 - CSS3
 
-## Environment Variables (Server Folder):
+## Environment Variables (Server Folder)
 
 - `DATABASE`: MongoDB connection string  
 - `PORT`: Port (e.g., 4500)
 
-## Environment Variables (Client Folder(config.json)):
+## Environment Variables (Client Folder(config.json))
 
-## Start Scripts:
+## Start Scripts
 
 - **Server:**
   - `nodemon server`
