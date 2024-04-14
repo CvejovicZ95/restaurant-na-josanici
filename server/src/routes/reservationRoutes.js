@@ -1,8 +1,6 @@
 import express from 'express'
 import { createReservation,checkAvailability,getReservedDatesForRoom,getReservationById, getReservations,updateReservationProcessedStatus, deleteReservation } from '../controllers/reservationController.js'
 
-//import {authenticateToken} from '../middleware/authAdmin.js';
-
 const reservationRouter=express.Router()
 
 reservationRouter.get('/reservations',getReservations)

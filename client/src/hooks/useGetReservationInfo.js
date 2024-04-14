@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
-import { getReservation, getAllReservations, markReservationAsProcessed, deleteReservation } from '../api/getReservationInfoApi';
+import { getReservation, getAllReservations, markReservationAsProcessed, deleteReservation } from '../api/reservationApi.js';
 
 const useGetReservationInfo = (id) => {
   const [reservation, setReservation] = useState('');

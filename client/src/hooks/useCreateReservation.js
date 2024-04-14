@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-import { checkAvailability, createSingleReservation } from "../api/createReservationApi.js"
+import { checkAvailability, createSingleReservation } from "../api/reservationApi.js"
 
 const useCreateReservation = () => {
   const [reservation, setReservation] = useState('');
