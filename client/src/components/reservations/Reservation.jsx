@@ -177,14 +177,14 @@ export const Reservation=()=>{
             onChange={(e) => setAdditionalInfo(e.target.value)}
           />
 
-          <label style={{display:none}} className="label-form">ID sobe</label>
+          <label style={{display:'none'}} className="label-form">ID sobe</label>
           <input
             type="text"
             placeholder="Id sobe"
             required
             value={roomId}
             disabled
-            style={{display:none}}
+            style={{display:'none'}}
           />
 
           <button type="submit">Rezerviši</button>
