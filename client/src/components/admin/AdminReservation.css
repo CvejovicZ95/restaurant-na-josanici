@@ -1,0 +1,79 @@
+.reservation-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.reservation-list li {
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.reservation-list li p {
+  margin: 5px 0;
+}
+
+.reservation-list li span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.reservation-list li label {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+}
+.messages-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.messages-list li {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 400px;
+}
+
+.messages-list li span {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.messages-list li button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.messages-list li button:hover {
+  background-color: darkred;
+}
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+  .reservation-list {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .reservation-list li{
+    width: 95%;
+  }
+  .messages-list {
+    list-style-type: none;
+    padding: 0;
+    display: block;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .messages-list li{
+    width: 95%;
+  }
+}

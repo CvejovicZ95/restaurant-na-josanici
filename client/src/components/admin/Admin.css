@@ -1,0 +1,51 @@
+.admin-form button {
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.admin-form button:hover {
+  background-color: #0056b3;
+}
+
+.admin-button {
+  padding: 10px 20px;
+  margin: 2px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+.admin-button{
+  padding: 10px 20px;
+  margin: 2px;
+  color: #fff; 
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.admin-form {
+  width: 400px;
+  margin: auto;
+  text-align: center;
+}
+
+.admin-form input,
+.admin-form button {
+  display: block;
+  width: calc(100% - 22px); 
+  padding: 10px;
+  margin: 0 auto 15px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 16px;
+}

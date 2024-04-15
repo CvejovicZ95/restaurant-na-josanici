@@ -1,104 +1,69 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
+import { checkAvailability, createSingleReservation } from "../api/reservationApi.js"
 
-const useCreateReservation = () => {
+export const useCreateReservation = () => {
   const [reservation, setReservation] = useState('');
-  
 
   const createReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
-
     const success = handleErrors({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, roomId });
     if (!success) return;
 
     try {
-        const res = await fetch('http://localhost:4500/api/checkAvailability', {
-            method: "POST",
-            headers: { 'Content-Type': "application/json" },
-            body: JSON.stringify({ arrivalDate, departureDate, roomId })
-        });
-        const data = await res.json();
-        if (data.error) {
-            throw new Error(data.error);
-        }
+      const availabilityData = await checkAvailability( arrivalDate, departureDate, roomId );
 
-        if (data.available) {
-            const reservationRes = await fetch('http://localhost:4500/api/createReservation', {
-                method: "POST",
-                headers: { 'Content-Type': "application/json" },
-                body: JSON.stringify({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId })
-            });
-            const reservationData = await reservationRes.json();
-            if (reservationData.error) {
-                throw new Error(reservationData.error);
-            }
-            setReservation(reservationData);
+      if (availabilityData.error) {
+        throw new Error(availabilityData.error);
+      }
 
+      if (availabilityData.available) {
+        const reservationData = await createSingleReservation({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }); 
+        setReservation(reservationData);
+      } else {
+        const departureCheckData = await checkAvailability({ arrivalDate: departureDate, departureDate: departureDate, roomId }); 
+        if (departureCheckData.available) {
+          const reservationData = await createSingleReservation({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }); 
+          setReservation(reservationData);
         } else {
-            // Check if the room is available on the departure date of existing reservation
-            const departureCheckRes = await fetch('http://localhost:4500/api/checkAvailability', {
-                method: "POST",
-                headers: { 'Content-Type': "application/json" },
-                body: JSON.stringify({ arrivalDate: departureDate, departureDate: departureDate, roomId })
-            });
-            const departureCheckData = await departureCheckRes.json();
-            if (departureCheckData.available) {
-                const reservationRes = await fetch('http://localhost:4500/api/createReservation', {
-                    method: "POST",
-                    headers: { 'Content-Type': "application/json" },
-                    body: JSON.stringify({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId })
-                });
-                const reservationData = await reservationRes.json();
-                if (reservationData.error) {
-                    throw new Error(reservationData.error);
-                }
-                setReservation(reservationData);
-            } else {
-                setReservation(null);
-            }
+          setReservation(null);
         }
+      }
     } catch (error) {
-        toast.error(error.message);
-        setReservation(null);
+      toast.error(error.message);
+      setReservation(null);
     }
-  }
-  return { reservation,createReservation }
-}
+  };
 
-export { useCreateReservation }
+  return { reservation, createReservation };
+};
 
 
-function handleErrors({arrivalDate,departureDate,firstLastName,numberOfPersons,email,phoneNumber,roomId}){
-
+function handleErrors({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, roomId }) {
   const today = new Date();
   const arrivalDateTime = new Date(arrivalDate);
   const departureDateTime = new Date(departureDate);
   const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  if (!arrivalDate || !departureDate || !firstLastName || !numberOfPersons || !email || !phoneNumber || !roomId) {
-    toast.error("Molimo unesite sve potrebne informacije.");
-    return false;
-  }
-  if (arrivalDateTime < today || departureDateTime < today) {
-    toast.error("Molimo da pravilno unesete datume.");
-    return false;
-  }
-  if (departureDateTime <= arrivalDateTime) {
-    toast.error("Datum odlaska mora biti posle datuma dolaska.");
-    return false;
-  }
-  if (!phoneRegex.test(phoneNumber)) {
-    toast.error('Molimo unesite ispravan format broja telefona');
-    return false;
-  }
-  if(firstLastName.length < 6){
-    toast.error('Molimo unesite puno ime i prezime')
-    return false;
-  }
-  if (!emailRegex.test(email)) {
-    toast.error('Molimo unesite ispravan format e-pošte');
-    return false;
-  }
-  return true
+  return !arrivalDate || !departureDate || !firstLastName || !numberOfPersons || !email || !phoneNumber || !roomId ?
+  
+    (console.error("Molimo unesite sve potrebne informacije."), false) :
+    (arrivalDateTime < today || departureDateTime < today ?
+
+      (console.error("Molimo da pravilno unesete datume."), false) :
+      (departureDateTime <= arrivalDateTime ?
+
+        (console.error("Datum odlaska mora biti posle datuma dolaska."), false) :
+        (!phoneRegex.test(phoneNumber) ?
+
+          (console.error('Molimo unesite ispravan format broja telefona'), false) :
+          (firstLastName.length < 6 ?
+
+            (console.error('Molimo unesite puno ime i prezime'), false) :
+            (!emailRegex.test(email) ?
+            
+              (console.error('Molimo unesite ispravan format e-pošte'), false) :
+              true)))));
 }
+
 

@@ -1,14 +1,15 @@
 import express from 'express';
-import connect from './db/connectDB.js'
 import cors from 'cors';
 import dotenv from 'dotenv';
 
-import foodRoutes from './routes/foodRoutes.js'
-import wineRoutes from './routes/wineRoutes.js'
-import roomRoutes from './routes/roomRoutes.js'
-import messageRoutes from './routes/messageRoutes.js'
-import reservationRoutes from './routes/reservationRoutes.js'
-import adminRoutes from './routes/adminRoutes.js'
+import {connect} from "./src/db/connectDB.js"
+
+import {foodRouter} from "./src/routes/foodRoutes.js"
+import {wineRouter} from "./src/routes/wineRoutes.js"
+import {roomRouter} from "./src/routes/roomRoutes.js"
+import {messageRouter} from "./src/routes/messageRoutes.js"
+import {reservationRouter} from "./src/routes/reservationRoutes.js"
+import {adminRouter} from "./src/routes/adminRoutes.js"
  
 
 const app=express();
@@ -27,12 +28,12 @@ app.use(express.json());
 app.use(cors(corsOptions));
 
 
-app.use('/api',adminRoutes)
-app.use('/api',foodRoutes)
-app.use('/api',wineRoutes)
-app.use('/api',roomRoutes)
-app.use('/api',messageRoutes)
-app.use('/api',reservationRoutes)
+app.use('/api',adminRouter)
+app.use('/api',foodRouter)
+app.use('/api',wineRouter)
+app.use('/api',roomRouter)
+app.use('/api',messageRouter)
+app.use('/api',reservationRouter)
 
 app.listen(PORT,()=>{
   connect();

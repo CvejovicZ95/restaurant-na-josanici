@@ -1,0 +1,269 @@
+
+.rooms-page{
+  text-align: center;
+}
+.rooms-page h1{
+  font-family: Italianno;
+  font-size: 60px;
+  margin: 0;
+}
+.rooms-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.rooms-container p{
+  color: black;
+  padding: 5px;
+  margin: 0;
+}
+.rooms-container span{
+  color: black;
+  font-size: 12px;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.room {
+  margin: 10px;
+  text-align: center; 
+}
+.reserve-button span{
+  padding: 5px;
+  color: #666;
+  font-size: 14px;
+}
+.reserve-button{
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+.reserve-button button {
+  margin: auto;
+  width: 40%; 
+  background-color: #29ad2d; 
+  border: none; 
+  padding: 10px; 
+  color: white;
+  cursor: pointer; 
+  border-radius: 5px;
+  text-align: center; 
+  text-decoration: none; 
+  display: block; 
+  font-size: 16px; 
+  transition:  0.3s
+}
+
+.reserve-button button:hover {
+  background-color: #52a156; 
+  color: black;
+  transition: 0.3s;
+}
+
+.room img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px; 
+}
+
+.room {
+  position: relative;
+}
+.room p{
+  font-family:'Georgia';
+  font-size: 20px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.room p:hover{
+  color: rgb(255, 166, 0);
+  transition: 0.3s;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+  color: white;
+  padding: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  font-family: Italianno;
+}
+.room img:hover {
+  filter: brightness(30%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.room:hover .overlay-text {
+  opacity: 1;
+}
+
+.room:hover img {
+  filter: brightness(30%);
+  transition: filter 0.3s ease-in-out;
+}
+
+.room:hover .overlay-text {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.overlay-text:hover {
+  pointer-events: none;
+}
+.rooms-info {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  padding-bottom: 80px;
+}
+
+.rooms-info-left {
+  width: 35%;
+}
+.rooms-info-left p{
+  text-align: start;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17px;
+}
+.rooms-info-left span{
+  font-weight: bold;
+}
+.rooms-info-right {
+  width: 45%;
+}
+
+.reviews {
+  display: flex;
+}
+
+.arrows {
+  font-size: 30px;
+  width: 30px;
+  cursor: pointer; 
+}
+
+.solo-review {
+  font-size: 20px;
+  margin: 0 20px; 
+  flex-grow: 1; 
+}
+.rooms-info-right h2,.rooms-info-left h2{
+  font-family: Italianno;
+  font-size: 40px;
+}
+.reviews button{
+  background-color: white;
+  padding: 10px;
+  border: none;
+}
+.icons{
+  padding-top: 40px;
+  color: green;
+  font-size: 50px;
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+  margin: auto;
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+  .rooms-page{
+    margin-top: 60px;
+  }
+  .rooms-container img{
+    width: 90%;
+    margin: auto;
+  }
+  .rooms-info{
+    display: block;
+  }
+  .rooms-info-left,.rooms-info-right{
+    text-align: center;
+    width: 100%;
+  }
+  .rooms-info-left h2,.rooms-info-right h2{
+    text-decoration: underline;
+  }
+  .rooms-info-left p{
+    padding: 20px;
+    width: 90%;
+    text-align: start;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .rooms {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+  }
+  .about-rooms {
+    padding: 30px;
+    margin: 0;
+    text-align: center;
+    width: auto;
+  }
+  .about-rooms h1 {
+    font-size: 36px;
+  }
+  .about-rooms h2 {
+    font-size: 28px;
+  }
+  .about-rooms p {
+    text-align: center;
+  }
+  .about-rooms button {
+    font-size: 20px;
+  }
+  .gallery-rooms{
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+  }
+  .image-container-room img{
+    width: 550px;
+    height: 500px;
+    margin: 0;
+    padding: 0;
+    border-radius: 5px;
+  }
+  .image-container img{
+    width: 100%;
+    height: auto;
+  }
+  .image-container-room img{
+    transition: 0
+  }
+  
+  .image-container-room img:hover{
+    transform: scale(1) 
+  }
+  .rooms-info{
+    display: block;
+  }
+  .rooms-info-left,.rooms-info-right{
+    text-align: center;
+    width: 100%;
+  }
+  .rooms-info-left h2,.rooms-info-right h2{
+    text-decoration: underline;
+  }
+  .rooms-info-left p{
+    padding: 20px;
+    width: 90%;
+    text-align: start;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1199px) {
+  .rooms-page{
+    margin-top: 100px;
+  }
+  
+}

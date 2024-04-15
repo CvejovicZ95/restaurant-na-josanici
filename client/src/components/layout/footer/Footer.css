@@ -1,0 +1,43 @@
+.footer{
+  margin-top: 100px;
+  text-align: center;
+  background-color: #444;
+  font-family: "Inter", Sans-serif;
+}
+.map{
+  margin-top: 20px;
+  margin-bottom: 40px;
+}
+.location{
+  font-size: 26px;
+  color: #fe6367;
+}
+.footer h2{
+  font-size: 18px;
+  color: #fff;
+  margin: 0;
+  padding: 5px;
+}
+
+.footer hr{
+  width: 35%;
+}
+.links{
+  margin-top: 30px;
+}
+.links a{
+  padding: 30px;
+  font-size: 34px;
+  color: white;
+}
+.footer p{
+  color: #fff;
+  margin: 0;
+}
+
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+.map{
+  width: 350px;
+}
+}

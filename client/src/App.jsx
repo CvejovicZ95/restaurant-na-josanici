@@ -1,16 +1,16 @@
-import Layout from "./components/Layout";
-import Contact from "./components/Contact";
-import Menu from "./components/Menu";
-import Wine from "./components/Wine";
-import Rooms from "./components/Rooms";
-import Reservation from "./components/Reservation";
-import ReservationDetails from "./components/ReservationDetails";
-import Admin from "./components/Admin";
-import AllReservations from "./components/AdminReservations";
+import {Layout} from "./components/Layout/Layout"
+import {Contact} from "./components/Contact/Contact";
+import {Menu} from "./components/Menu/Menu"
+import {Wine} from "./components/Menu/Wine";
+import {Rooms} from "./components/Rooms/Rooms";
+import {Reservation} from "./components/Reservations/Reservation";
+import {ReservationDetails} from "./components/Reservations/ReservationDetails";
+import {Admin} from "./components/Admin/Admin";
+import {AllReservations} from "./components/Admin/AdminReservations";
 import {Navigate, Route,Routes} from 'react-router-dom'
 import { useAuthContext } from "./context/authContext";
 
-function App() {
+export function App() {
   const {authUser}=useAuthContext()
   return (
     <Routes>
@@ -35,5 +35,3 @@ function App() {
     </Routes>
   );
 }
-
-export default App;

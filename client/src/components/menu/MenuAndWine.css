@@ -1,0 +1,184 @@
+.menu h1,.wine h1{
+  text-align: center;
+  font-family: Italianno;
+  font-size: 65px;
+}
+
+.menu {
+  margin: 0 auto; 
+  padding: 0 20px; 
+}
+.wine{
+  margin: 0;
+}
+
+.food-category,.wine-category {
+  font-size: 50px;
+  margin-bottom: 15px;
+  font-family: Italianno; 
+  text-align: center;
+  font-weight: 100;
+}
+
+
+.single-food,.single-wine {
+  border-bottom: 1px dashed #ccc; 
+  padding: 10px 0;
+  font-family:'Baskerville';
+}
+
+.food-name-price,.wine-name-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.food-name-price span,.wine-name-price span{
+  font-weight: bold;
+}
+
+.food-name,.wine-name {
+  font-size: 20px;
+}
+
+
+.food-price,.wine-price {
+  font-size: 20px;
+  color: #666;
+}
+
+
+.about-food,.about-wine {
+  color: #888;
+  margin-top: 5px;
+}
+.wine-grid,.menu-grid {
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center; 
+}
+
+.wine-image-left,
+.wine-image-right,
+.food-image-left {
+  width: 400px; 
+  height: auto; 
+}
+.food-image-right{
+  height: 300px;
+  margin-top: 400px;
+}
+.food-image-left{
+  margin-bottom: 800px;
+}
+.wine-image-left{
+  margin-bottom: 500px;
+}
+.wine-image-right{
+  margin-top: 500px;
+}
+.wine-list {
+  padding: 0 20px; 
+}
+.update-div-room{
+  width: 400px;
+}
+
+
+
+@media only screen and (min-width: 250px) and (max-width: 768px) {
+  .menu-grid,.wine-grid {
+    display: block;
+  }
+  .menu h1,.wine h1{
+    text-align: center;
+    font-family: Italianno;
+    font-size: 35px;
+  }
+
+  .food-image-left,
+  .food-image-right,
+  .wine-image-left,
+  .wine-image-right {
+    display: none;
+  }
+
+  .menu,.wine {
+    padding: 20px;
+  }
+
+
+  .food-name-price,.wine-name-price {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .food-name,
+  .food-price
+  .wine-name,
+  .wine-price {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  .menu-grid,.wine-grid {
+    display: block;
+  }
+
+  .food-image-left,
+  .food-image-right,
+  .wine-image-left,
+  .wine-image-right {
+    display: none;
+  }
+
+  .menu,.wine {
+    padding: 20px;
+  }
+
+  
+
+  .food-name-price,.wine-name-price {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .food-name,
+  .food-price
+  .wine-name,
+  .wine-price {
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1199px) {
+  
+  .menu-grid,.wine-grid {
+    display: block;
+  }
+
+  .food-image-left,
+  .food-image-right,
+  .wine-image-left,
+  .wine-image-right {
+    display: none;
+  }
+
+  .menu,.wine {
+    padding: 20px;
+  }
+  .wine,.menu,.contact{
+    margin-top: 40px;
+  }
+  .food-name-price,.wine-name-price {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .food-name,
+  .food-price,
+  .wine-name,
+  .wine-price {
+    display: inline-block;
+  }
+}

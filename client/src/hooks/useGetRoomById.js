@@ -1,42 +1,37 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
+import { getRoomById, getReservedDates } from '../api/roomByIdApi';
 
-const useGetRoomById = (id) => {
+export const useGetRoomById = (id) => {
   const [loading, setLoading] = useState(true);
   const [room, setRoom] = useState(null);
   const [reservedDates, setReservedDates] = useState([]);
 
   useEffect(() => {
-    const fetchRoom = async () => {
+    const fetchData = async () => {
       try {
-        const roomRes = await fetch(`http://localhost:4500/api/room/${id}`);
-        const roomData = await roomRes.json();
+        const roomData = await getRoomById(id); 
         setRoom(roomData);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching room:', error);
-        toast.error('Error fetching room');
+        toast.error(error.message);
       }
     };
 
-    const fetchReservedDates = async () => {
+    const fetchReservedDatesData = async () => {
       try {
-        const reservedDatesRes = await fetch(`http://localhost:4500/api/getReservedDates/${id}`);
-
-        const reservedDatesData = await reservedDatesRes.json();
-
-        setReservedDates(reservedDatesData); 
+        const reservedDatesData = await getReservedDates(id);
+        setReservedDates(reservedDatesData);
       } catch (error) {
         console.error('Error fetching reserved dates:', error);
-        toast.error('Error fetching reserved dates');
+        toast.error(error.message);
       }
     };
 
-    fetchRoom();
-    fetchReservedDates();
+    fetchData();
+    fetchReservedDatesData();
   }, [id]);
 
   return { loading, room, reservedDates };
 };
-
-export { useGetRoomById };
