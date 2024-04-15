@@ -1,7 +1,7 @@
 import config from '../config.json'
 const apiUrl = config.API_BASE_URL
 
-const getAllRooms = async () => {
+export const getAllRooms = async () => {
   try {
     const res = await fetch(`${apiUrl}/api/allRooms`);
     const data = await res.json();
@@ -14,7 +14,7 @@ const getAllRooms = async () => {
   }
 };
 
-const updateRoom = async (id, updatedName, updatedAbout, updatedPrice, updatedInfo) => {
+export const updateRoom = async (id, updatedName, updatedAbout, updatedPrice, updatedInfo) => {
   try {
     const res = await fetch(`${apiUrl}/api/updateRoom/${id}`, {
       method: 'PUT',
@@ -32,5 +32,3 @@ const updateRoom = async (id, updatedName, updatedAbout, updatedPrice, updatedIn
     throw new Error(error.message);
   }
 };
-
-export { getAllRooms, updateRoom };

@@ -1,7 +1,7 @@
 import config from '../config.json'
 const apiUrl = config.API_BASE_URL
 
-const getRoomById = async (id) => {
+export const getRoomById = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/room/${id}`);
     const data = await res.json();
@@ -11,7 +11,7 @@ const getRoomById = async (id) => {
   }
 };
 
-const getReservedDates = async (id) => {
+export const getReservedDates = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/getReservedDates/${id}`);
     const data = await res.json();
@@ -20,5 +20,3 @@ const getReservedDates = async (id) => {
     throw new Error('Error fetching reserved dates');
   }
 };
-
-export { getRoomById, getReservedDates };

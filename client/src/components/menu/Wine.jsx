@@ -26,27 +26,23 @@ export const Wine = () => {
     setLoaded(true);
   }, [])
 
-  const [inputs,setInputs]=useState({
-    name:'',
-    price:'',
-    about:'',
-    category:''
-  })
+  const [name, setName] = useState('');
+  const [about, setAbout] = useState('');
+  const [price, setPrice] = useState('');
+  const [category, setCategory] = useState('');
 
   const handleSubmit=async(e)=>{
     e.preventDefault()
-    await uploadWineHandler(inputs)
+    await uploadWineHandler({ name, about, price, category })
     setCompleted(true)
   }
   
   useEffect(() => {
     if (completed) {
-      setInputs({
-        name:'',
-        about:'',
-        price:'',
-        category:''
-      });
+      setName('');
+      setAbout('');
+      setPrice('');
+      setCategory('');
     }
   }, [completed]);
 
@@ -92,26 +88,26 @@ export const Wine = () => {
                   <input
                     type='text'
                     placeholder='Naziv artikla'
-                    value={inputs.name}
-                    onChange={(e)=>setInputs({...inputs,name:e.target.value})}
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                   />
                   <input
                     type='text'
                     placeholder='Opis'
-                    value={inputs.about}
-                    onChange={(e)=>setInputs({...inputs,about:e.target.value})}
+                    value={about}
+                    onChange={(e) => setAbout(e.target.value)}
                   />
                   <input
                     type='text'
                     placeholder='Cena'
-                    value={inputs.price}
-                    onChange={(e)=>setInputs({...inputs,price:e.target.value})}
+                    value={price}
+                    onChange={(e) => setPrice(e.target.value)}
                   />
                   <input
                     type='text'
                     placeholder='Kategorija'
-                    value={inputs.category}
-                    onChange={(e)=>setInputs({...inputs,category:e.target.value})}
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                   />
                   <button style={{backgroundColor:'green'}} className='admin-button' type='submit'>Dodaj artikal</button>
                   <p>{message}</p>

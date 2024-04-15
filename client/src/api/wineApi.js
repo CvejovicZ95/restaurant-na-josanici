@@ -28,7 +28,7 @@ export const deleteWine = async (id) => {
   }
 };
 
-export const uploadWine = async ({name, price, about, category}) => {
+export const uploadWine = async (name, price, about, category) => {
   try {
     validateWine(name, price, category);
 

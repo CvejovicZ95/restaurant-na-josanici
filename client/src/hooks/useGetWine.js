@@ -30,7 +30,7 @@ const useGetWine = () => {
 
   const uploadWineHandler = async ({ name, price, about, category }) => {
     try {
-      await uploadWine({ name, price, about, category }); 
+      await uploadWine( name, price, about, category ); 
       const data = await getWine(); 
       setWine(data);
       setMessage('Artikal uspešno dodat');

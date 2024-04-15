@@ -11,7 +11,7 @@ const useCreateMessage = () => {
     if (!success) return;
 
     try {
-      const data = await createMessage({ firstLastName, email, phoneNumber, question }); 
+      const data = await createMessage( firstLastName, email, phoneNumber, question ); 
       setMessage(data);
     } catch (error) {
       toast.error(error.message);

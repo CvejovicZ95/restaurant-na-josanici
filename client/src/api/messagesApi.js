@@ -1,7 +1,7 @@
 import config from '../config.json'
 const apiUrl = config.API_BASE_URL
 
-export const createMessage = async ({firstLastName, email, phoneNumber, question}) => {
+export const createMessage = async (firstLastName, email, phoneNumber, question) => {
   try {
     const res = await fetch(`${apiUrl}/api/createMessage`, {
       method: "POST",

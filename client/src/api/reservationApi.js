@@ -1,7 +1,7 @@
 import config from '../config.json'
 const apiUrl = config.API_BASE_URL
 
-const getReservation = async (id) => {
+export const getReservation = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/reservation/${id}`);
     const data = await res.json();
@@ -14,7 +14,7 @@ const getReservation = async (id) => {
   }
 };
 
-const getAllReservations = async () => {
+export const getAllReservations = async () => {
   try {
     const res = await fetch(`${apiUrl}/api/reservations`);
     const data = await res.json();
@@ -27,7 +27,7 @@ const getAllReservations = async () => {
   }
 };
 
-const markReservationAsProcessed = async (id) => {
+export const markReservationAsProcessed = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/reservation/${id}/processed`, {
       method: 'PUT',
@@ -46,7 +46,7 @@ const markReservationAsProcessed = async (id) => {
   }
 };
 
-const deleteReservation = async (id) => {
+export const deleteReservation = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/deleteReservation/${id}`, {
       method: 'PUT',
@@ -65,7 +65,7 @@ const deleteReservation = async (id) => {
   }
 };
 
-const checkAvailability = async ({arrivalDate, departureDate, roomId}) => {
+export const checkAvailability = async (arrivalDate, departureDate, roomId) => {
   try {
     const res = await fetch(`${apiUrl}/api/checkAvailability`, {
       method: 'POST',
@@ -79,7 +79,7 @@ const checkAvailability = async ({arrivalDate, departureDate, roomId}) => {
   }
 };
 
-const createSingleReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
+export const createSingleReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
   try {
     const res = await fetch(`${apiUrl}/api/createReservation`, {
       method: 'POST',
@@ -92,5 +92,3 @@ const createSingleReservation = async ({ arrivalDate, departureDate, firstLastNa
     throw new Error('Error creating reservation');
   }
 };
-
-export { checkAvailability, createSingleReservation, getReservation, getAllReservations, markReservationAsProcessed, deleteReservation };

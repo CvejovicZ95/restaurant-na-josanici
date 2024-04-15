@@ -10,7 +10,7 @@ const useCreateReservation = () => {
     if (!success) return;
 
     try {
-      const availabilityData = await checkAvailability({ arrivalDate, departureDate, roomId });
+      const availabilityData = await checkAvailability( arrivalDate, departureDate, roomId );
 
       if (availabilityData.error) {
         throw new Error(availabilityData.error);

@@ -1,4 +1,3 @@
-// Imports
 import React, { useState } from "react";
 import { Header } from "../Layout/Header/Header.jsx";
 import { Footer } from "../Layout/Footer/Footer.jsx";
@@ -28,6 +27,7 @@ export const Contact = () => {
     setPhoneNumber('');
     setQuestion('');
     setCompleted(true);
+    
     setTimeout(() => {
       setCompleted(false);
     }, 5000);

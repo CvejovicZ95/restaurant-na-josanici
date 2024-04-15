@@ -31,7 +31,7 @@ const useGetFood = () => {
 
   const uploadFoodHandler = async ({ name, price, about, category }) => {
     try {
-      await uploadFood({ name, price, about, category }); 
+      await uploadFood( name, price, about, category ); 
       const data = await getFood();
       setFood(data);
       setMessage('Artikal uspešno dodat');
