@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getFood, deleteFood, uploadFood, updateFood } from '../api/menuApi';
 
-const useGetFood = () => {
+export const useGetFood = () => {
   const [food, setFood] = useState([]);
   // eslint-disable-next-line
   const [message, setMessage] = useState('');
@@ -52,5 +52,3 @@ const useGetFood = () => {
 
   return { food, deleteFoodHandler, uploadFoodHandler, updateFoodHandler, message };
 };
-
-export { useGetFood };

@@ -3,7 +3,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useAuthContext } from '../context/authContext';
 import { logoutUser } from '../api/adminApi';
 
-const useLogout = () => {
+export const useLogout = () => {
   const { logout } = useAuthContext();
 
   const logoutHandler = async () => {
@@ -17,5 +17,3 @@ const useLogout = () => {
 
   return { logoutHandler };
 };
-
-export { useLogout };

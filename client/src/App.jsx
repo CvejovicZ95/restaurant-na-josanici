@@ -10,7 +10,7 @@ import {AllReservations} from "./components/Admin/AdminReservations";
 import {Navigate, Route,Routes} from 'react-router-dom'
 import { useAuthContext } from "./context/authContext";
 
-function App() {
+export function App() {
   const {authUser}=useAuthContext()
   return (
     <Routes>
@@ -35,5 +35,3 @@ function App() {
     </Routes>
   );
 }
-
-export {App};

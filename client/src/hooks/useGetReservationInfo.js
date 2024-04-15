@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import { getReservation, getAllReservations, markReservationAsProcessed, deleteReservation } from '../api/reservationApi.js';
 
-const useGetReservationInfo = (id) => {
+export const useGetReservationInfo = (id) => {
   const [reservation, setReservation] = useState('');
   const [allReservations, setAllReservations] = useState([]);
 
@@ -53,5 +53,3 @@ const useGetReservationInfo = (id) => {
 
   return { reservation, allReservations, markReservationAsProcessedHandler, deleteReservationHandler };
 };
-
-export { useGetReservationInfo };

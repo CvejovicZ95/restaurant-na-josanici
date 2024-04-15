@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react'
 import { toast } from 'react-toastify';
 import { createMessage, fetchAllMessages, deleteMessage } from '../api/messagesApi';
 
-const useCreateMessage = () => {
+export const useCreateMessage = () => {
   const [message, setMessage] = useState('');
   const [allMessages, setAllMessages] = useState([]);
 
@@ -41,8 +41,6 @@ const useCreateMessage = () => {
 
   return { message, createMessageHandler, allMessages, deleteMessageHandler };
 };
-
-export { useCreateMessage };
 
 function handleErrors({ firstLastName, email, phoneNumber, question }) {
   return !firstLastName || !email || !phoneNumber || !question ?

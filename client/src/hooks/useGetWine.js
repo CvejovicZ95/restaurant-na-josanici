@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react'
 import { toast } from 'react-toastify';
 import { getWine, deleteWine, uploadWine, updateWine } from '../api/wineApi';
 
-const useGetWine = () => {
+export const useGetWine = () => {
   const [wine, setWine] = useState([]);
   const [message, setMessage] = useState('');
 
@@ -51,5 +51,3 @@ const useGetWine = () => {
 
   return { wine, deleteWineHandler, uploadWineHandler, updateWineHandler, message };
 };
-
-export { useGetWine };

@@ -3,7 +3,7 @@ import { useAuthContext } from '../context/authContext';
 import { setCookie } from './useSetCookie';
 import { loginUser } from '../api/adminApi.js';
 
-const useLogin = () => {
+export const useLogin = () => {
   const { login } = useAuthContext();
 
   const loginHandler = async (username, password) => {
@@ -21,8 +21,6 @@ const useLogin = () => {
 
   return { loginHandler };
 };
-
-export { useLogin };
 
 function handleErrors({ username, password }) {
   return !username || !password ? (toast.error('Popunite potrebna polja'), false) : true;

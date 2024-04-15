@@ -1,7 +1,7 @@
 import express from 'express'
 import { createReservation,checkAvailability,getReservedDatesForRoom,getReservationById, getReservations,updateReservationProcessedStatus, deleteReservation } from '../controllers/reservationController.js'
 
-const reservationRouter=express.Router()
+export const reservationRouter=express.Router()
 
 reservationRouter.get('/reservations',getReservations)
 reservationRouter.post('/checkAvailability',checkAvailability)
@@ -10,5 +10,3 @@ reservationRouter.get('/getReservedDates/:id',getReservedDatesForRoom)
 reservationRouter.get('/reservation/:id',getReservationById)
 reservationRouter.put('/reservation/:id/processed',updateReservationProcessedStatus)
 reservationRouter.put('/deleteReservation/:id',deleteReservation)
-
-export {reservationRouter}

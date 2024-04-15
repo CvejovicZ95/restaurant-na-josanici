@@ -2,7 +2,7 @@ import {useEffect,useState} from 'react'
 import { toast } from 'react-toastify';
 import { getAllRooms, updateRoom } from '../api/roomsApi';
 
-const useGetRoom = () => {
+export const useGetRoom = () => {
   const [rooms, setRooms] = useState([]);
 
   useEffect(() => {
@@ -29,5 +29,3 @@ const useGetRoom = () => {
 
   return { rooms, updateRoomHandler };
 };
-
-export { useGetRoom };

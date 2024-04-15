@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { checkAvailability, createSingleReservation } from "../api/reservationApi.js"
 
-const useCreateReservation = () => {
+export const useCreateReservation = () => {
   const [reservation, setReservation] = useState('');
 
   const createReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
@@ -36,9 +36,6 @@ const useCreateReservation = () => {
 
   return { reservation, createReservation };
 };
-
-export { useCreateReservation };
-
 
 
 function handleErrors({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, roomId }) {

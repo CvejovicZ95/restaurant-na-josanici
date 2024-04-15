@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { getRoomById, getReservedDates } from '../api/roomByIdApi';
 
-const useGetRoomById = (id) => {
+export const useGetRoomById = (id) => {
   const [loading, setLoading] = useState(true);
   const [room, setRoom] = useState(null);
   const [reservedDates, setReservedDates] = useState([]);
@@ -35,5 +35,3 @@ const useGetRoomById = (id) => {
 
   return { loading, room, reservedDates };
 };
-
-export { useGetRoomById };
