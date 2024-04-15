@@ -1,7 +1,14 @@
-## Todo
+# Todo
 
-- headers in fetch to clean
-- clean throw erros in fetch
-- gallery to DB
-- config.json to DB
+- Clean this:headers: {
+        'Content-Type': 'application/json'
+}
 
+- Clean this: const data = await res.json();
+    if (data.error) {
+      throw new Error(data.error);
+    }
+
+- Add gallery to DB
+
+- Move data from config.json to DB
