@@ -1,14 +1,14 @@
-import {toast} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import { useAuthContext } from '../context/authContext';
-import { logoutUser } from '../api/adminApi';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useAuthContext } from "../context/authContext";
+import { logoutUser } from "../api/adminApi";
 
 export const useLogout = () => {
   const { logout } = useAuthContext();
 
   const logoutHandler = async () => {
     try {
-      await logoutUser(); 
+      await logoutUser();
       logout();
     } catch (error) {
       toast.error(error.message);

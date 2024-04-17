@@ -1,28 +1,27 @@
-import {Header} from "../Layout/Header/Header.jsx"
-import {Footer} from "../Layout/Footer/Footer.jsx"
+import React from "react";
+import { Header } from "../layout/header/Header.jsx";
+import { Footer } from "../layout/footer/Footer.jsx";
 
-import { useState } from "react"
-import {useGetRoomById} from '../../hooks/useGetRoomById'
+import { useState } from "react";
+import { useGetRoomById } from "../../hooks/useGetRoomById";
 
-import {useCreateReservation} from '../../hooks/useCreateReservation'
-import { ToastContainer } from "react-toastify"
-import 'react-toastify/dist/ReactToastify.css';
-import { Navigate, useParams } from "react-router-dom"
+import { useCreateReservation } from "../../hooks/useCreateReservation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Navigate, useParams } from "react-router-dom";
 
 import "./Reservation.css";
 
+export const Reservation = () => {
+  const { id } = useParams();
 
-export const Reservation=()=>{
-  
-  const {id}= useParams();
-  
   // eslint-disable-next-line
   const {loading,reservedDates,room}=useGetRoomById(id)
 
-  const [completed,setCompleted]=useState(false)
+  const [completed, setCompleted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  
-  const { reservation,createReservation} = useCreateReservation();
+
+  const { reservation, createReservation } = useCreateReservation();
 
   const [arrivalDate, setArrivalDate] = useState("");
   const [departureDate, setDepartureDate] = useState("");
@@ -31,61 +30,67 @@ export const Reservation=()=>{
   const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [additionalInfo, setAdditionalInfo] = useState("");
-  const [roomId,setRoomId] = useState(id);
+  const [roomId, setRoomId] = useState(id);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     const phoneRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
+
     if (!arrivalDate || !departureDate) {
       setErrorMessage("Molimo Vas da izaberete datume dolaska i odlaska.");
       return;
     }
 
     if (departureDate <= arrivalDate) {
-      setErrorMessage('Datum odlaska mora biti posle datuma dolaska.');
+      setErrorMessage("Datum odlaska mora biti posle datuma dolaska.");
       return;
     }
-  
+
     if (!phoneRegex.test(phoneNumber)) {
-      setErrorMessage('Molimo unesite ispravan format broja telefona.');
+      setErrorMessage("Molimo unesite ispravan format broja telefona.");
       return;
     }
-  
+
     if (firstLastName.length < 6) {
-      setErrorMessage('Molimo unesite puno ime i prezime.');
+      setErrorMessage("Molimo unesite puno ime i prezime.");
       return;
     }
-  
+
     if (!emailRegex.test(email)) {
-      setErrorMessage('Molimo unesite ispravan format e-pošte.');
+      setErrorMessage("Molimo unesite ispravan format e-pošte.");
       return;
     }
-  
+
     if (!numberOfPersons || !email || !phoneNumber || !firstLastName) {
       setErrorMessage("Molimo popunite sva polja.");
       return;
     }
-  
-    const isDateAvailable =
-    Array.isArray(reservedDates.reservedDates) && reservedDates.reservedDates.length > 0
-    ? reservedDates.reservedDates.every((reservedDate) => {
-        const arrival = new Date(arrivalDate);
-        const departure = new Date(departureDate);
-        const reservedArrivalDate = new Date(reservedDate.arrivalDate);
-        const reservedDepartureDate = new Date(reservedDate.departureDate);
 
-        return arrival >= reservedDepartureDate || departure <= reservedArrivalDate;
-      })
-    : true;
-  
+    const isDateAvailable =
+      Array.isArray(reservedDates.reservedDates) &&
+      reservedDates.reservedDates.length > 0
+        ? reservedDates.reservedDates.every((reservedDate) => {
+            const arrival = new Date(arrivalDate);
+            const departure = new Date(departureDate);
+            const reservedArrivalDate = new Date(reservedDate.arrivalDate);
+            const reservedDepartureDate = new Date(reservedDate.departureDate);
+
+            return (
+              arrival >= reservedDepartureDate ||
+              departure <= reservedArrivalDate
+            );
+          })
+        : true;
+
     if (!isDateAvailable) {
-      setErrorMessage("Žao nam je, soba je već rezervisana za odabrane datume.");
+      setErrorMessage(
+        "Žao nam je, soba je već rezervisana za odabrane datume.",
+      );
       return;
     }
-  
+
     try {
       await createReservation({
         arrivalDate,
@@ -104,7 +109,7 @@ export const Reservation=()=>{
       setEmail("");
       setPhoneNumber("");
       setAdditionalInfo("");
-      setRoomId('')
+      setRoomId("");
 
       setCompleted(true);
     } catch (error) {
@@ -177,19 +182,20 @@ export const Reservation=()=>{
             onChange={(e) => setAdditionalInfo(e.target.value)}
           />
 
-          <label style={{display:'none'}} className="label-form">ID sobe</label>
+          <label style={{ display: "none" }} className="label-form">
+            ID sobe
+          </label>
           <input
             type="text"
             placeholder="Id sobe"
             required
             value={roomId}
             disabled
-            style={{display:'none'}}
+            style={{ display: "none" }}
           />
 
           <button type="submit">Rezerviši</button>
         </form>
-
 
         {completed && reservation && (
           <Navigate to={`/reservationInfo/${reservation._id}`} />

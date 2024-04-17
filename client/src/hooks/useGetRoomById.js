@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { getRoomById, getReservedDates } from '../api/roomByIdApi';
+import { useState, useEffect } from "react";
+import { toast } from "react-toastify";
+import { getRoomById, getReservedDates } from "../api/roomByIdApi";
 
 export const useGetRoomById = (id) => {
   const [loading, setLoading] = useState(true);
@@ -10,11 +10,11 @@ export const useGetRoomById = (id) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const roomData = await getRoomById(id); 
+        const roomData = await getRoomById(id);
         setRoom(roomData);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching room:', error);
+        console.error("Error fetching room:", error);
         toast.error(error.message);
       }
     };
@@ -24,7 +24,7 @@ export const useGetRoomById = (id) => {
         const reservedDatesData = await getReservedDates(id);
         setReservedDates(reservedDatesData);
       } catch (error) {
-        console.error('Error fetching reserved dates:', error);
+        console.error("Error fetching reserved dates:", error);
         toast.error(error.message);
       }
     };

@@ -1,5 +1,5 @@
-import config from '../config.json'
-const apiUrl = config.API_BASE_URL
+import config from "../config.json";
+const apiUrl = config.API_BASE_URL;
 
 export const getFood = async () => {
   try {
@@ -17,10 +17,10 @@ export const getFood = async () => {
 export const deleteFood = async (id) => {
   try {
     await fetch(`${apiUrl}/api/deleteFood/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: {
-        'Content-Type': 'application/json'
-      }
+        "Content-Type": "application/json",
+      },
     });
     return true;
   } catch (error) {
@@ -33,11 +33,11 @@ export const uploadFood = async (name, price, about, category) => {
     validateFood(name, price, category);
 
     const res = await fetch(`${apiUrl}/api/uploadFood`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, price, about, category })
+      body: JSON.stringify({ name, price, about, category }),
     });
     const data = await res.json();
     if (data.error) {
@@ -49,13 +49,21 @@ export const uploadFood = async (name, price, about, category) => {
   }
 };
 
-
-export const updateFood = async (id, updatedName, updatedAbout, updatedPrice) => {
+export const updateFood = async (
+  id,
+  updatedName,
+  updatedAbout,
+  updatedPrice,
+) => {
   try {
     await fetch(`${apiUrl}/api/updateFood/${id}`, {
       method: "PUT",
-      headers: { 'Content-Type': "application/json" },
-      body: JSON.stringify({ name: updatedName, about: updatedAbout, price: updatedPrice })
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: updatedName,
+        about: updatedAbout,
+        price: updatedPrice,
+      }),
     });
     return true;
   } catch (error) {
@@ -63,26 +71,25 @@ export const updateFood = async (id, updatedName, updatedAbout, updatedPrice) =>
   }
 };
 
-
 const validateFood = (name, price, category) => {
   const validCategories = [
-    'Doručak',
-    'Hladna predjela',
-    'Topla predjela',
-    'Čorbe',
-    'Paste i rižota',
-    'Jela po porudžbini',
-    'Roštilj',
-    'Riba',
-    'Obrok salate',
-    'Dezert'
+    "Doručak",
+    "Hladna predjela",
+    "Topla predjela",
+    "Čorbe",
+    "Paste i rižota",
+    "Jela po porudžbini",
+    "Roštilj",
+    "Riba",
+    "Obrok salate",
+    "Dezert",
   ];
 
   if (!validCategories.includes(category)) {
-    throw new Error('Ispravno unesite kategoriju');
+    throw new Error("Ispravno unesite kategoriju");
   }
 
   if (!name || !price || !category) {
-    throw new Error('Popunite sva obavezna polja');
+    throw new Error("Popunite sva obavezna polja");
   }
 };

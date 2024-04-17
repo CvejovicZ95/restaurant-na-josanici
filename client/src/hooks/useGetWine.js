@@ -1,15 +1,15 @@
-import {useEffect,useState} from 'react'
-import { toast } from 'react-toastify';
-import { getWine, deleteWine, uploadWine, updateWine } from '../api/wineApi';
+import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { getWine, deleteWine, uploadWine, updateWine } from "../api/wineApi";
 
 export const useGetWine = () => {
   const [wine, setWine] = useState([]);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchWine = async () => {
       try {
-        const data = await getWine(); 
+        const data = await getWine();
         setWine(data);
       } catch (error) {
         toast.error(error.message);
@@ -20,8 +20,8 @@ export const useGetWine = () => {
 
   const deleteWineHandler = async (id) => {
     try {
-      await deleteWine(id); 
-      const updatedWine = wine.filter(item => item._id !== id);
+      await deleteWine(id);
+      const updatedWine = wine.filter((item) => item._id !== id);
       setWine(updatedWine);
     } catch (error) {
       toast.error(error.message);
@@ -30,24 +30,44 @@ export const useGetWine = () => {
 
   const uploadWineHandler = async ({ name, price, about, category }) => {
     try {
-      await uploadWine( name, price, about, category ); 
-      const data = await getWine(); 
+      await uploadWine(name, price, about, category);
+      const data = await getWine();
       setWine(data);
-      setMessage('Artikal uspešno dodat');
+      setMessage("Artikal uspešno dodat");
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  const updateWineHandler = async (id, updatedName, updatedAbout, updatedPrice) => {
+  const updateWineHandler = async (
+    id,
+    updatedName,
+    updatedAbout,
+    updatedPrice,
+  ) => {
     try {
       await updateWine(id, updatedName, updatedAbout, updatedPrice);
-      const updatedWine = wine.map(item => item._id === id ? { ...item, name: updatedName, about: updatedAbout, price: updatedPrice } : item);
+      const updatedWine = wine.map((item) =>
+        item._id === id
+          ? {
+              ...item,
+              name: updatedName,
+              about: updatedAbout,
+              price: updatedPrice,
+            }
+          : item,
+      );
       setWine(updatedWine);
     } catch (error) {
       toast.error(error.message);
     }
   };
 
-  return { wine, deleteWineHandler, uploadWineHandler, updateWineHandler, message };
+  return {
+    wine,
+    deleteWineHandler,
+    uploadWineHandler,
+    updateWineHandler,
+    message,
+  };
 };
