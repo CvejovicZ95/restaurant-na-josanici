@@ -1,5 +1,5 @@
-import config from '../config.json'
-const apiUrl = config.API_BASE_URL
+import config from "../config.json";
+const apiUrl = config.API_BASE_URL;
 
 export const getReservation = async (id) => {
   try {
@@ -30,11 +30,11 @@ export const getAllReservations = async () => {
 export const markReservationAsProcessed = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/reservation/${id}/processed`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ processed: true })
+      body: JSON.stringify({ processed: true }),
     });
     const data = await res.json();
     if (data.error) {
@@ -49,11 +49,11 @@ export const markReservationAsProcessed = async (id) => {
 export const deleteReservation = async (id) => {
   try {
     const res = await fetch(`${apiUrl}/api/deleteReservation/${id}`, {
-      method: 'PUT',
+      method: "PUT",
       headers: {
-        'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ deleted: true })
+      body: JSON.stringify({ deleted: true }),
     });
     const data = await res.json();
     if (data.error) {
@@ -68,27 +68,45 @@ export const deleteReservation = async (id) => {
 export const checkAvailability = async (arrivalDate, departureDate, roomId) => {
   try {
     const res = await fetch(`${apiUrl}/api/checkAvailability`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ arrivalDate, departureDate, roomId })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ arrivalDate, departureDate, roomId }),
     });
     const data = await res.json();
     return data;
   } catch (error) {
-    throw new Error('Error checking availability');
+    throw new Error("Error checking availability");
   }
 };
 
-export const createSingleReservation = async ({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId }) => {
+export const createSingleReservation = async ({
+  arrivalDate,
+  departureDate,
+  firstLastName,
+  numberOfPersons,
+  email,
+  phoneNumber,
+  additionalInfo,
+  roomId,
+}) => {
   try {
     const res = await fetch(`${apiUrl}/api/createReservation`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ arrivalDate, departureDate, firstLastName, numberOfPersons, email, phoneNumber, additionalInfo, roomId })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        arrivalDate,
+        departureDate,
+        firstLastName,
+        numberOfPersons,
+        email,
+        phoneNumber,
+        additionalInfo,
+        roomId,
+      }),
     });
     const data = await res.json();
     return data;
   } catch (error) {
-    throw new Error('Error creating reservation');
+    throw new Error("Error creating reservation");
   }
 };

@@ -13,8 +13,6 @@
 
 - Move data from config.json to DB
 
-- Eslint
-
 - Test
 
 - Webpack

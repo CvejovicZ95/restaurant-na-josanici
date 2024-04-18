@@ -1,17 +1,18 @@
-import {Header} from "../Layout/Header/Header.jsx"
-import {HomePage} from "../Layout/HomePage/HomePage.jsx"
-import {Gallery} from "../Layout/Gallery/Gallery.jsx"
-import {AboutRooms} from "../Layout/AboutRooms/AboutRooms.jsx"
-import {Footer} from "../Layout/Footer/Footer.jsx"
+import React from "react";
+import { Header } from "../layout/header/Header.jsx";
+import { HomePage } from "../layout/homePage/HomePage.jsx";
+import { Gallery } from "../layout/gallery/Gallery.jsx";
+import { AboutRooms } from "../layout/aboutRooms/AboutRooms.jsx";
+import { Footer } from "../layout/footer/Footer.jsx";
 
-export const Layout=()=>{
-  return(
+export const Layout = () => {
+  return (
     <div className="App">
-      <Header/>
-      <HomePage/>
-      <Gallery/>
-      <AboutRooms/>
-      <Footer/>
+      <Header />
+      <HomePage />
+      <Gallery />
+      <AboutRooms />
+      <Footer />
     </div>
-  )
-}
+  );
+};
