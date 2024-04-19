@@ -10,7 +10,7 @@ import {roomRouter} from "./src/routes/roomRoutes.js"
 import {messageRouter} from "./src/routes/messageRoutes.js"
 import {reservationRouter} from "./src/routes/reservationRoutes.js"
 import {adminRouter} from "./src/routes/adminRoutes.js"
- 
+import { galleryRouter } from './src/routes/galleryRoutes.js'; 
 
 const app=express();
 dotenv.config();
@@ -34,6 +34,7 @@ app.use('/api',wineRouter)
 app.use('/api',roomRouter)
 app.use('/api',messageRouter)
 app.use('/api',reservationRouter)
+app.use('/api',galleryRouter)
 
 app.listen(PORT,()=>{
   connect();

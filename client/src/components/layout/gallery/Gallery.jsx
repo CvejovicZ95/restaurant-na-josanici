@@ -1,42 +1,40 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Gallery.css";
 import { ImageContainer } from "./SingleImage";
+import { useGetImages } from "../../../hooks/useGetImagesGallery.js";
+import { useAuthContext } from "../../../context/authContext.js";
+import { FaUpload } from "react-icons/fa";
 
 export const Gallery = () => {
-  const foodItems = [
-    {
-      src: "images/hrana1.jpg",
-      alt: "hrana1",
-      overlayText: "Miks mesa u pogači",
-    },
-    {
-      src: "images/hrana2.jpg",
-      alt: "hrana2",
-      overlayText: "Rolovano belo meso",
-    },
-    {
-      src: "images/hrana3.jpg",
-      alt: "hrana3",
-      overlayText: "Dimljena vešalica",
-    },
-    {
-      src: "images/hrana4.jpg",
-      alt: "hrana4",
-      overlayText: "Teletina ispod sača",
-    },
-    {
-      src: "images/hrana5.jpg",
-      alt: "hrana5",
-      overlayText: "Predjelo 'Na Jošanici'",
-    },
-    {
-      src: "images/hrana6.jpg",
-      alt: "hrana6",
-      overlayText: "Dimljeni vrat u sosu od pečuraka",
-    },
-    { src: "images/hrana7.jpeg", alt: "hrana7", overlayText: "Mešano meso" },
-    { src: "images/hrana8.jpg", alt: "hrana8", overlayText: "Carbonara" },
-  ];
+  const { images, handleDeleteImage, uploadHandler } = useGetImages();
+  const { authUser } = useAuthContext();
+
+  const [completed, setCompleted] = useState(false);
+  const [overlayText, setOverlayText] = useState("");
+  const [alt, setAlt] = useState("");
+  const [image, setImage] = useState(null);
+  const [category, setCategory] = useState("food");
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setImage(imageFile);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await uploadHandler({ overlayText, alt, image, category });
+    setCompleted(true);
+  };
+
+  useEffect(() => {
+    if (completed) {
+      setOverlayText("");
+      setAlt("");
+      setImage(null);
+    }
+  }, [completed]);
+
+  const foodImages = images.filter((image) => image.category === "food");
 
   return (
     <div className="gallery-header" id="gallery">
@@ -44,15 +42,68 @@ export const Gallery = () => {
       <p>Restoranu Na Jošanici</p>
       <img className="img-icon" src="images/icon.png" alt="icon" />
       <div className="gallery">
-        {foodItems.map((food, index) => (
+        {foodImages.map((image) => (
           <ImageContainer
-            key={index}
-            src={food.src}
-            alt={food.alt}
-            overlayText={food.overlayText}
+            key={image._id}
+            src={`/images/${image.imagePath}`}
+            alt={image.alt}
+            overlayText={image.overlayText}
+            id={image._id}
+            handleDeleteImage={handleDeleteImage}
           />
         ))}
       </div>
+      {authUser && (
+        <div className="div-form">
+          <form className="upload-image-form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="overlayText"
+              placeholder="Opis"
+              value={overlayText}
+              onChange={(e) => setOverlayText(e.target.value)}
+            />
+            <input
+              type="text"
+              name="alt"
+              placeholder="Naziv"
+              value={alt}
+              onChange={(e) => setAlt(e.target.value)}
+            />
+            <input
+              type="text"
+              name="category"
+              placeholder="kategorija"
+              value={category}
+              onChange={(e) => setCategory(e.target.value)}
+              disabled
+              style={{ display: "none" }}
+            />
+            <div className="upload-wrapper">
+              <span className="upload-icon">
+                <FaUpload />
+              </span>
+              <span className="upload-label">Choose image:</span>
+              <input
+                type="file"
+                name="image"
+                className="upload-file"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+              {image && <p>Selected image: {image.name}</p>}
+            </div>
+
+            <button
+              style={{ backgroundColor: "green" }}
+              className="admin-button"
+              type="submit"
+            >
+              Dodaj sliku
+            </button>
+          </form>
+        </div>
+      )}
     </div>
   );
 };

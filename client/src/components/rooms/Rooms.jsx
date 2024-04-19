@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../layout/header/Header.jsx";
 import { Footer } from "../layout/footer/Footer.jsx";
@@ -12,17 +12,20 @@ import { GiForkKnifeSpoon } from "react-icons/gi";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./Rooms.css";
+import { FaUpload } from "react-icons/fa";
 
 import { useGetRoom } from "../../hooks/useGetRoom";
 
 import { useAuthContext } from "../../context/authContext";
 import config from "../../config.json";
 import { SingleImageRoom } from "./SingleImageRoom.jsx";
+import { useGetImages } from "../../hooks/useGetImagesGallery.js";
 
 export const Rooms = () => {
   const { authUser } = useAuthContext();
 
   const { rooms, updateRoomHandler } = useGetRoom();
+  const { images, handleDeleteImage, uploadHandler } = useGetImages();
 
   const reviews = [
     config.review1,
@@ -53,6 +56,31 @@ export const Rooms = () => {
   // eslint-disable-next-line
   const [isUpdating, setIsUpdating] = useState(false);
 
+  const [overlayText, setOverlayText] = useState("");
+  const [alt, setAlt] = useState("");
+  const [image, setImage] = useState(null);
+  const [category, setCategory] = useState("soba");
+  const [completed, setCompleted] = useState(false);
+
+  const handleImageChange = (event) => {
+    const imageFile = event.target.files[0];
+    setImage(imageFile);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await uploadHandler({ overlayText, alt, image, category });
+    setCompleted(true);
+  };
+
+  useEffect(() => {
+    if (completed) {
+      setOverlayText("");
+      setAlt("");
+      setImage(null);
+    }
+  }, [completed]);
+
   const handleUpdate = (item) => {
     setSelectedRoom(item);
     setUpdatedName(item.name);
@@ -76,16 +104,8 @@ export const Rooms = () => {
       toast.error(error.message);
     }
   };
-  const roomImages = [
-    { src: "images/room1.jpg", alt: "room1" },
-    { src: "images/room2.jpg", alt: "room2" },
-    { src: "images/room3.jpg", alt: "room3" },
-    { src: "images/room4.jpg", alt: "room4" },
-    { src: "images/room5.jpg", alt: "room5" },
-    { src: "images/room6.jpg", alt: "room6" },
-    { src: "images/room7.jpg", alt: "room7" },
-    { src: "images/room8.jpg", alt: "room8" },
-  ];
+
+  const roomImages = images.filter((room) => room.category === "soba");
 
   return (
     <>
@@ -210,10 +230,69 @@ export const Rooms = () => {
         </div>
 
         <div className="gallery-room">
-          {roomImages.map((room, index) => (
-            <SingleImageRoom key={index} src={room.src} alt={room.alt} />
+          {roomImages.map((room) => (
+            <SingleImageRoom
+              key={room._id}
+              src={`/images/${room.imagePath}`}
+              alt={room.alt}
+              overlayText={room.overlayText}
+              id={room._id}
+              handleDeleteImage={handleDeleteImage}
+            />
           ))}
         </div>
+
+        {authUser && (
+          <div className="upload-image-form">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="overlayText"
+                placeholder="Opis"
+                value={overlayText}
+                onChange={(e) => setOverlayText(e.target.value)}
+              />
+              <input
+                type="text"
+                name="alt"
+                placeholder="Naziv"
+                value={alt}
+                onChange={(e) => setAlt(e.target.value)}
+              />
+              <input
+                type="text"
+                name="category"
+                placeholder="kategorija"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
+                disabled
+                style={{ display: "none" }}
+              />
+              <div className="upload-wrapper">
+                <span className="upload-icon">
+                  <FaUpload />
+                </span>
+                <span className="upload-label">Choose image:</span>
+                <input
+                  type="file"
+                  name="image"
+                  className="upload-file"
+                  accept="image/*"
+                  onChange={handleImageChange}
+                />
+                {image && <p>Selected image: {image.name}</p>}
+              </div>
+
+              <button
+                style={{ backgroundColor: "green" }}
+                className="admin-button"
+                type="submit"
+              >
+                Dodaj sliku
+              </button>
+            </form>
+          </div>
+        )}
 
         <div className="icons">
           <FaParking />
