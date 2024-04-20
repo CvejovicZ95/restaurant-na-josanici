@@ -1,5 +1,4 @@
 import React from "react";
-import "./Gallery.css";
 import PropTypes from "prop-types";
 import { useAuthContext } from "../../../context/authContext.js";
 import { toast } from "react-toastify";

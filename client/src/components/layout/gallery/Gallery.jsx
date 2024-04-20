@@ -1,40 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./Gallery.css";
 import { ImageContainer } from "./SingleImage";
 import { useGetImages } from "../../../hooks/useGetImagesGallery.js";
 import { useAuthContext } from "../../../context/authContext.js";
-import { FaUpload } from "react-icons/fa";
+import { ImageUploadForm } from "./ImageUploadForm.jsx";
 
 export const Gallery = () => {
   const { images, handleDeleteImage, uploadHandler } = useGetImages();
   const { authUser } = useAuthContext();
 
-  const [completed, setCompleted] = useState(false);
-  const [overlayText, setOverlayText] = useState("");
-  const [alt, setAlt] = useState("");
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState("food");
-
-  const handleImageChange = (event) => {
-    const imageFile = event.target.files[0];
-    setImage(imageFile);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await uploadHandler({ overlayText, alt, image, category });
-    setCompleted(true);
-  };
-
-  useEffect(() => {
-    if (completed) {
-      setOverlayText("");
-      setAlt("");
-      setImage(null);
-    }
-  }, [completed]);
-
-  const foodImages = images.filter((image) => image.category === "food");
+  const foodImages = images.filter((image) => image.category === "hrana");
 
   return (
     <div className="gallery-header" id="gallery">
@@ -55,53 +30,7 @@ export const Gallery = () => {
       </div>
       {authUser && (
         <div className="div-form">
-          <form className="upload-image-form" onSubmit={handleSubmit}>
-            <input
-              type="text"
-              name="overlayText"
-              placeholder="Opis"
-              value={overlayText}
-              onChange={(e) => setOverlayText(e.target.value)}
-            />
-            <input
-              type="text"
-              name="alt"
-              placeholder="Naziv"
-              value={alt}
-              onChange={(e) => setAlt(e.target.value)}
-            />
-            <input
-              type="text"
-              name="category"
-              placeholder="kategorija"
-              value={category}
-              onChange={(e) => setCategory(e.target.value)}
-              disabled
-              style={{ display: "none" }}
-            />
-            <div className="upload-wrapper">
-              <span className="upload-icon">
-                <FaUpload />
-              </span>
-              <span className="upload-label">Choose image:</span>
-              <input
-                type="file"
-                name="image"
-                className="upload-file"
-                accept="image/*"
-                onChange={handleImageChange}
-              />
-              {image && <p>Selected image: {image.name}</p>}
-            </div>
-
-            <button
-              style={{ backgroundColor: "green" }}
-              className="admin-button"
-              type="submit"
-            >
-              Dodaj sliku
-            </button>
-          </form>
+          <ImageUploadForm handleSubmit={uploadHandler} />
         </div>
       )}
     </div>

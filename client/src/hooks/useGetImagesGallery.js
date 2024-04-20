@@ -32,7 +32,7 @@ export const useGetImages = () => {
 
   const uploadHandler = async ({ overlayText, alt, image, category }) => {
     try {
-      if (!overlayText || !alt || !image) {
+      if (!overlayText || !alt || !image || !category) {
         throw new Error("Molimo vas popunite sva polja pre slanja slike.");
       }
       await uploadImage(overlayText, alt, image, category);

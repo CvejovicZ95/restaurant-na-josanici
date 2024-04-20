@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Header } from "../layout/header/Header.jsx";
 import { Footer } from "../layout/footer/Footer.jsx";
+import { WineAddForm } from "./WineAddForm.jsx";
 import { useGetWine } from "../../hooks/useGetWine.js";
-import { useState, useEffect } from "react";
 
 import { useAuthContext } from "../../context/authContext.js";
 
@@ -12,15 +12,9 @@ import "react-toastify/dist/ReactToastify.css";
 export const Wine = () => {
   const { authUser } = useAuthContext();
 
-  const {
-    wine,
-    deleteWineHandler,
-    uploadWineHandler,
-    updateWineHandler,
-    message,
-  } = useGetWine();
+  const { wine, deleteWineHandler, updateWineHandler } = useGetWine();
+
   const [loaded, setLoaded] = useState(false);
-  const [completed, setCompleted] = useState(false);
 
   const [updatedName, setUpdatedName] = useState("");
   const [updatedAbout, setUpdatedAbout] = useState("");
@@ -32,26 +26,6 @@ export const Wine = () => {
   useEffect(() => {
     setLoaded(true);
   }, []);
-
-  const [name, setName] = useState("");
-  const [about, setAbout] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await uploadWineHandler({ name, about, price, category });
-    setCompleted(true);
-  };
-
-  useEffect(() => {
-    if (completed) {
-      setName("");
-      setAbout("");
-      setPrice("");
-      setCategory("");
-    }
-  }, [completed]);
 
   const handleUpdate = (item) => {
     setSelectedWine(item);
@@ -91,44 +65,7 @@ export const Wine = () => {
           <img src="images/grapes.png" alt="wine" className="wine-image-left" />
           <div className="wine-list">
             <h1>Vina</h1>
-            {authUser && (
-              <div>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="Naziv artikla"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Opis"
-                    value={about}
-                    onChange={(e) => setAbout(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Cena"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Kategorija"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                  <button
-                    style={{ backgroundColor: "green" }}
-                    className="admin-button"
-                    type="submit"
-                  >
-                    Dodaj artikal
-                  </button>
-                  <p>{message}</p>
-                </form>
-              </div>
-            )}
+            {authUser && <WineAddForm />}
             {Object.keys(wine).map((category) => (
               <div key={category}>
                 <h2 className="wine-category">{category}</h2>
