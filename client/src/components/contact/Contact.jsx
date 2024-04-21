@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { ContactForm } from "./ContactForm.jsx";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { ContactForm } from "./ContactForm";
 import { FaPhone } from "react-icons/fa6";
 import { IoMdMail } from "react-icons/io";
 import { FaLocationDot } from "react-icons/fa6";

@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { WineAddForm } from "./WineAddForm.jsx";
-import { useGetWine } from "../../hooks/useGetWine.js";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { WineAddForm } from "./WineAddForm";
+import { useGetWine } from "../../hooks/useGetWine";
 
-import { useAuthContext } from "../../context/authContext.js";
+import { useAuthContext } from "../../context/authContext";
 
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -62,7 +62,11 @@ export const Wine = () => {
       <Header />
       <div className={`wine ${loaded ? "fade-in" : ""}`}>
         <div className="wine-grid">
-          <img src="images/grapes.png" alt="wine" className="wine-image-left" />
+          <img
+            src="/images/grapes.png"
+            alt="wine"
+            className="wine-image-left"
+          />
           <div className="wine-list">
             <h1>Vina</h1>
             {authUser && <WineAddForm />}
@@ -132,7 +136,7 @@ export const Wine = () => {
               </div>
             ))}
           </div>
-          <img src="images/wine.png" alt="Wine" className="wine-image-right" />
+          <img src="/images/wine.png" alt="Wine" className="wine-image-right" />
         </div>
       </div>
       <Footer />

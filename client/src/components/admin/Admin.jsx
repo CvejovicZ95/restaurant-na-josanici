@@ -1,8 +1,8 @@
 import React from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { AdminMessages } from "./AdminMessages.jsx";
-import { AdminReseservations } from "./AdminReservation.jsx";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { AdminMessages } from "./AdminMessages";
+import { AdminReservations } from "./AdminReservation";
 import "./Admin.css";
 import "./AdminReservation.css";
 
@@ -10,7 +10,7 @@ export const AllReservations = () => {
   return (
     <>
       <Header />
-      <AdminReseservations />
+      <AdminReservations />
       <AdminMessages />
       <Footer />
     </>

@@ -16,8 +16,8 @@ export const AboutRooms = () => {
         <button>Sobe Na Jošanici</button>
       </Link>
       <div className="room-images">
-        <img src="images/soba.png" alt="room1" />
-        <img src="images/slikasoba.png" alt="room2" />
+        <img src="/images/soba.png" alt="room1" />
+        <img src="/images/slikasoba.png" alt="room2" />
       </div>
     </div>
   );

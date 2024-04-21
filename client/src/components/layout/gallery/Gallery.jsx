@@ -1,9 +1,10 @@
 import React from "react";
 import "./Gallery.css";
 import { ImageContainer } from "./SingleImage";
-import { useGetImages } from "../../../hooks/useGetImagesGallery.js";
-import { useAuthContext } from "../../../context/authContext.js";
-import { ImageUploadForm } from "./ImageUploadForm.jsx";
+import { useGetImages } from "../../../hooks/useGetImagesGallery";
+import { useAuthContext } from "../../../context/authContext";
+import { ImageUploadForm } from "./ImageUploadForm";
+import config from "../../../config.json";
 
 export const Gallery = () => {
   const { images, handleDeleteImage, uploadHandler } = useGetImages();
@@ -15,12 +16,12 @@ export const Gallery = () => {
     <div className="gallery-header" id="gallery">
       <h1>Pogledajte šta Vas čeka u</h1>
       <p>Restoranu Na Jošanici</p>
-      <img className="img-icon" src="images/icon.png" alt="icon" />
+      <img className="img-icon" src="/images/icon.png" alt="icon" />
       <div className="gallery">
         {foodImages.map((image) => (
           <ImageContainer
             key={image._id}
-            src={`/images/${image.imagePath}`}
+            src={`${config.API_BASE_URL}/images/${image.imagePath}`}
             alt={image.alt}
             overlayText={image.overlayText}
             id={image._id}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useCreateMessage } from "../../hooks/useCreateMessage.js";
+import { useCreateMessage } from "../../hooks/useCreateMessage";
 
 export const ContactForm = () => {
   const [firstLastName, setFirstLastName] = useState("");

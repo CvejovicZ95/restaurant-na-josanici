@@ -7,7 +7,7 @@ import { Rooms } from "./components/rooms/Rooms";
 import { Reservation } from "./components/reservations/Reservation";
 import { ReservationDetails } from "./components/reservations/ReservationDetails";
 import { AdminLogin } from "./components/admin/AdminLogin";
-import { AllReservations } from "./components/admin/Admin.jsx";
+import { AllReservations } from "./components/admin/Admin";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuthContext } from "./context/authContext";
 

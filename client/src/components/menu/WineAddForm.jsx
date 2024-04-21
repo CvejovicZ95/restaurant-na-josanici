@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useGetWine } from "../../hooks/useGetWine.js";
+import { useGetWine } from "../../hooks/useGetWine";
 
 export const WineAddForm = () => {
   const { uploadWineHandler, message } = useGetWine();

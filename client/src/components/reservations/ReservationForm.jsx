@@ -4,6 +4,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { useCreateReservation } from "../../hooks/useCreateReservation";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { checkAvailability } from "../../api/reservationApi";
 
 export const ReservationForm = () => {
   const { id } = useParams();
@@ -61,23 +62,29 @@ export const ReservationForm = () => {
       return;
     }
 
-    const isDateAvailable =
-      Array.isArray(reservedDates.reservedDates) &&
-      reservedDates.reservedDates.length > 0
-        ? reservedDates.reservedDates.every((reservedDate) => {
-            const arrival = new Date(arrivalDate);
-            const departure = new Date(departureDate);
-            const reservedArrivalDate = new Date(reservedDate.arrivalDate);
-            const reservedDepartureDate = new Date(reservedDate.departureDate);
+    const isDateAvailable = async () => {
+      if (
+        Array.isArray(reservedDates.reservedDates) &&
+        reservedDates.reservedDates.length > 0
+      ) {
+        try {
+          const availabilityData = await checkAvailability(
+            arrivalDate,
+            departureDate,
+            roomId,
+          );
+          return availabilityData.available;
+        } catch (error) {
+          console.error("Error in checking room availabilty:", error.message);
+          throw new Error("Error in checking room availabilty");
+        }
+      }
+      return true;
+    };
 
-            return (
-              arrival >= reservedDepartureDate ||
-              departure <= reservedArrivalDate
-            );
-          })
-        : true;
+    const roomAvailable = await isDateAvailable();
 
-    if (!isDateAvailable) {
+    if (!roomAvailable) {
       setErrorMessage(
         "Žao nam je, soba je već rezervisana za odabrane datume.",
       );

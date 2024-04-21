@@ -1,9 +1,9 @@
 import React from "react";
 import "./Rooms.css";
 import PropTypes from "prop-types";
-import { useAuthContext } from "../../context/authContext.js";
+import { useAuthContext } from "../../context/authContext";
 import { toast } from "react-toastify";
-import { useGetImages } from "../../hooks/useGetImagesGallery.js";
+import { useGetImages } from "../../hooks/useGetImagesGallery";
 
 export const SingleImageRoom = ({ src, alt, overlayText, id }) => {
   const { authUser } = useAuthContext();

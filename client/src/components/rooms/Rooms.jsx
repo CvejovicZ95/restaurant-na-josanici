@@ -1,10 +1,10 @@
 import React from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { SingleImageRoom } from "./SingleImageRoom.jsx";
-import { ImageUploadForm } from "../layout/gallery/ImageUploadForm.jsx";
-import { RoomsContainer } from "./RoomsContainer.jsx";
-import { RoomsInfo } from "./RoomsInfo.jsx";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { SingleImageRoom } from "./SingleImageRoom";
+import { ImageUploadForm } from "../layout/gallery/ImageUploadForm";
+import { RoomsContainer } from "./RoomsContainer";
+import { RoomsInfo } from "./RoomsInfo";
 
 import { FaWifi } from "react-icons/fa";
 import { FaParking } from "react-icons/fa";
@@ -13,7 +13,8 @@ import { GiForkKnifeSpoon } from "react-icons/gi";
 import "./Rooms.css";
 
 import { useAuthContext } from "../../context/authContext";
-import { useGetImages } from "../../hooks/useGetImagesGallery.js";
+import { useGetImages } from "../../hooks/useGetImagesGallery";
+import config from "../../config.json";
 
 export const Rooms = () => {
   const { authUser } = useAuthContext();
@@ -31,7 +32,7 @@ export const Rooms = () => {
           {roomImages.map((room) => (
             <SingleImageRoom
               key={room._id}
-              src={`/images/${room.imagePath}`}
+              src={`${config.API_BASE_URL}/images/${room.imagePath}`}
               alt={room.alt}
               overlayText={room.overlayText}
               id={room._id}

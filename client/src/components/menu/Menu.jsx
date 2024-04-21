@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
-import { MenuAddForm } from "./MenuAddForm.jsx";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { MenuAddForm } from "./MenuAddForm";
 import { useGetFood } from "../../hooks/useGetFood";
 import { useState, useEffect } from "react";
 
@@ -65,7 +65,7 @@ export const Menu = () => {
       <Header />
       <div className={`menu ${loaded ? "fade-in" : ""}`}>
         <div className="menu-grid">
-          <img src="images/pasta.png" alt="Food" className="food-image-left" />
+          <img src="/images/pasta.png" alt="Food" className="food-image-left" />
           <div className="food-list">
             {authUser && <MenuAddForm />}
             <h1>Menu</h1>
@@ -138,7 +138,7 @@ export const Menu = () => {
               </div>
             ))}
           </div>
-          <img src="images/beef.png" alt="Food" className="food-image-right" />
+          <img src="/images/beef.png" alt="Food" className="food-image-right" />
         </div>
       </div>
       <Footer />
