@@ -1,29 +1,29 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const wineSchema= new mongoose.Schema({
-  name:{
-    type:String,
-    required:true
+const wineSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true
   },
-  price:{
-    type:String,
-    required:true
+  price: {
+    type: String,
+    required: true
   },
-  about:{
-    type:String,
-    required:false
+  about: {
+    type: String,
+    required: false
   },
-  category:{
-    type:String,
-    required:true
+  category: {
+    type: String,
+    required: true
   }
-},{
-  timestamps:{
+}, {
+  timestamps: {
     createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    updatedAt: 'updated_at'
   }
 })
 
-const Wine = mongoose.model('Wine',wineSchema)
+const Wine = mongoose.model('Wine', wineSchema)
 
-export {Wine}
+export { Wine }
