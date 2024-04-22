@@ -6,6 +6,7 @@ import { FaPhone } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
 import { scrollToTop } from "../../hooks/useScrollToTop";
 
+import "./Reservation.css";
 import "./ReservationDetails.css";
 
 export const ReservationDetails = () => {

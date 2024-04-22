@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 import { useAuthContext } from "../context/authContext";
 import { setCookie } from "./useSetCookie";
-import { loginUser } from "../api/adminApi.js";
+import { loginUser } from "../api/adminApi";
 
 export const useLogin = () => {
   const { login } = useAuthContext();

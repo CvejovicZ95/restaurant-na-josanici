@@ -6,8 +6,8 @@ import { Wine } from "./components/menu/Wine";
 import { Rooms } from "./components/rooms/Rooms";
 import { Reservation } from "./components/reservations/Reservation";
 import { ReservationDetails } from "./components/reservations/ReservationDetails";
-import { Admin } from "./components/admin/Admin";
-import { AllReservations } from "./components/admin/AdminReservations";
+import { AdminLogin } from "./components/admin/AdminLogin";
+import { AllReservations } from "./components/admin/Admin";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useAuthContext } from "./context/authContext";
 
@@ -31,7 +31,7 @@ export function App() {
 
       <Route
         path="/admin"
-        element={authUser ? <Navigate to={"/"} /> : <Admin />}
+        element={authUser ? <Navigate to={"/"} /> : <AdminLogin />}
       />
 
       <Route

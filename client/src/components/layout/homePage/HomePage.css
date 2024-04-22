@@ -1,5 +1,6 @@
 .home {
-  background-image: url("../../../../public/images/randomRes.jpg");;
+  background-image: url("../../../../public/images/randomRes.jpg");
+  ;
   background-size: contain;
 }
 
@@ -84,44 +85,52 @@
 
 @media only screen and (min-width: 250px) and (max-width: 768px) {
   .home {
-    background-image:url("../../../../public/images/randomRes.jpg");
+    background-image: url("../../../../public/images/randomRes.jpg");
     background-size: contain;
     background-repeat: no-repeat;
   }
-  .homePage img{
+
+  .homePage img {
     width: 200px;
   }
+
   .homePage p {
     font-size: 28px;
   }
+
   .homePage {
     margin-bottom: 160px;
   }
-  .about{
+
+  .about {
     display: block;
     text-align: center;
     margin: auto;
   }
-  .about-img{
+
+  .about-img {
     display: none;
   }
 
   .about-res {
     width: 85%;
     padding: 30px;
-    
+
   }
-  .about-res h2{
+
+  .about-res h2 {
     font-family: 'Italianno';
     font-size: 30px;
   }
-  .about-res h3{
+
+  .about-res h3 {
     font-size: 32px;
   }
+
   .about-res p {
     width: 70%;
     font-size: 14px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
   }
 }
 
@@ -131,7 +140,8 @@
     background-size: contain;
     background-repeat: no-repeat;
   }
-  .about-image img{
+
+  .about-image img {
     width: 350px;
   }
 }

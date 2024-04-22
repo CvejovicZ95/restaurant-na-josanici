@@ -1,6 +1,7 @@
 import React from "react";
-import { Header } from "../layout/header/Header.jsx";
-import { Footer } from "../layout/footer/Footer.jsx";
+import { Header } from "../layout/header/Header";
+import { Footer } from "../layout/footer/Footer";
+import { MenuAddForm } from "./MenuAddForm";
 import { useGetFood } from "../../hooks/useGetFood";
 import { useState, useEffect } from "react";
 
@@ -14,16 +15,9 @@ import "./MenuAndWine.css";
 export const Menu = () => {
   const { authUser } = useAuthContext();
 
-  const {
-    food,
-    deleteFoodHandler,
-    uploadFoodHandler,
-    updateFoodHandler,
-    message,
-  } = useGetFood();
+  const { food, deleteFoodHandler, updateFoodHandler } = useGetFood();
 
   const [loaded, setLoaded] = useState(false);
-  const [completed, setCompleted] = useState(false);
 
   const [updatedName, setUpdatedName] = useState("");
   const [updatedAbout, setUpdatedAbout] = useState("");
@@ -35,26 +29,6 @@ export const Menu = () => {
   useEffect(() => {
     setLoaded(true);
   }, []);
-
-  const [name, setName] = useState("");
-  const [about, setAbout] = useState("");
-  const [price, setPrice] = useState("");
-  const [category, setCategory] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    await uploadFoodHandler({ name, about, price, category });
-    setCompleted(true);
-  };
-
-  useEffect(() => {
-    if (completed) {
-      setName("");
-      setAbout("");
-      setPrice("");
-      setCategory("");
-    }
-  }, [completed]);
 
   const handleUpdate = (item) => {
     setSelectedFood(item);
@@ -91,46 +65,9 @@ export const Menu = () => {
       <Header />
       <div className={`menu ${loaded ? "fade-in" : ""}`}>
         <div className="menu-grid">
-          <img src="images/pasta.png" alt="Food" className="food-image-left" />
+          <img src="/images/pasta.png" alt="Food" className="food-image-left" />
           <div className="food-list">
-            {authUser && (
-              <div>
-                <form onSubmit={handleSubmit}>
-                  <input
-                    type="text"
-                    placeholder="Naziv artikla"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Opis"
-                    value={about}
-                    onChange={(e) => setAbout(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Cena"
-                    value={price}
-                    onChange={(e) => setPrice(e.target.value)}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Kategorija"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
-                  />
-                  <button
-                    style={{ backgroundColor: "green" }}
-                    className="admin-button"
-                    type="submit"
-                  >
-                    Dodaj artikal
-                  </button>
-                  <p>{message}</p>
-                </form>
-              </div>
-            )}
+            {authUser && <MenuAddForm />}
             <h1>Menu</h1>
             {Object.keys(food).map((category) => (
               <div key={category}>
@@ -201,7 +138,7 @@ export const Menu = () => {
               </div>
             ))}
           </div>
-          <img src="images/beef.png" alt="Food" className="food-image-right" />
+          <img src="/images/beef.png" alt="Food" className="food-image-right" />
         </div>
       </div>
       <Footer />

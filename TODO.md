@@ -9,8 +9,6 @@
       throw new Error(data.error);
     }
 
-- Add gallery to DB
-
 - Move data from config.json to DB
 
 - Test

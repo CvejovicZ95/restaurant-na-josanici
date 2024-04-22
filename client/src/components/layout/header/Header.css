@@ -18,10 +18,6 @@
   background-color: rgba(255, 255, 255, 1);
 }
 
-.img-logo:hover {
-  background-color: rgba(255, 255, 255, 1);
-}
-
 .nav-li {
   color: black;
   font-size: 20px;
@@ -58,32 +54,35 @@
     text-align: start;
     top: 60px;
     z-index: 998;
-    background:none;
+    background: none;
     background-color: rgba(255, 255, 255, 1);
-    
+
   }
+
   .nav {
     display: none;
   }
-  
+
   .nav.open {
     display: block;
-    
+
   }
 
   .nav-ul.open {
     display: flex;
   }
+
   .img-logo {
     max-width: 100px;
   }
+
   .menu-toggle {
-    display: block; 
+    display: block;
     cursor: pointer;
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 999; 
+    z-index: 999;
   }
 
   .bar {
@@ -91,7 +90,7 @@
     height: 3px;
     background-color: black;
     margin: 5px auto;
-    transition: all 0.3s ease; 
+    transition: all 0.3s ease;
   }
 
   .menu-toggle.open .bar:nth-child(1) {
@@ -108,15 +107,16 @@
 
   .nav-li {
     margin-right: 0;
-    margin-top: 20px; 
+    margin-top: 20px;
     margin-bottom: 10px;
     font-size: 14px;
     color: black;
     font-weight: 400;
   }
-  nav img{
+
+  nav img {
     display: none;
-    
+
   }
 }
 
@@ -126,6 +126,7 @@
     width: 100%;
     z-index: 999;
   }
+
   .nav {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -142,7 +143,7 @@
     font-size: 12px;
     padding: 30px;
   }
-  
+
   .img-logo {
     max-width: 100px;
   }
@@ -150,39 +151,44 @@
 
 
 @media only screen and (min-width: 1025px) and (max-width: 1199px) {
-  .header{
+  .header {
     position: sticky;
     top: 0;
     z-index: 1000;
   }
+
   .header {
     position: fixed;
     width: 100%;
     z-index: 999;
   }
+
   .img-logo {
     max-width: 100px;
   }
-  .nav-ul{
+
+  .nav-ul {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 0 ;
+    padding: 0;
     list-style: none;
     background-color: rgba(255, 255, 255, 0.8);
     margin: 0;
     transition: 0.3s;
   }
-  .nav-ul:hover{
-    background-color: rgba(255, 255, 255, 1); 
-    transition: 0.3s;
-  }
-  .img-logo:hover{
+
+  .nav-ul:hover {
     background-color: rgba(255, 255, 255, 1);
     transition: 0.3s;
   }
-  
-  .nav-li{
+
+  .img-logo:hover {
+    background-color: rgba(255, 255, 255, 1);
+    transition: 0.3s;
+  }
+
+  .nav-li {
     color: black;
     font-size: 16px;
     margin: auto;
@@ -192,24 +198,26 @@
     cursor: pointer;
     padding: 0 30px 0 30px;
   }
+
   .nav-li::after {
-    content: ''; 
-    position: absolute; 
-    left: 0; 
-    bottom: -3px; 
-    width: 100%; 
-    height: 2px; 
-    background-color: black; 
-    visibility: hidden; 
-    transform: scaleX(0); 
-    transition: all 0.3s ease-in-out; 
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
   }
-  
+
   .nav-li:hover::after {
-    visibility: visible; 
-    transform: scaleX(1); 
+    visibility: visible;
+    transform: scaleX(1);
   }
+
   .nav-toggle {
-    display: none; 
+    display: none;
   }
 }
