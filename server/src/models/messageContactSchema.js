@@ -1,34 +1,34 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const messageSchema= new mongoose.Schema({
-  firstLastName:{
-    type:String,
-    required:true
+const messageSchema = new mongoose.Schema({
+  firstLastName: {
+    type: String,
+    required: true
   },
-  email:{
-    type:String,
-    required:true
+  email: {
+    type: String,
+    required: true
   },
-  phoneNumber:{
-    type:String,
-    required:true
+  phoneNumber: {
+    type: String,
+    required: true
   },
-  question:{
-    type:String,
-    required:true
+  question: {
+    type: String,
+    required: true
   },
-  deleted:{
-    type:Boolean,
-    default:false
+  deleted: {
+    type: Boolean,
+    default: false
   }
-},{
-  timestamps:{
+}, {
+  timestamps: {
     createdAt: 'created_at',
     updatedAt: 'updated_at',
-    currentTime: () => new Date().toLocaleString(),
+    currentTime: () => new Date().toLocaleString()
   }
 })
 
-const Message = mongoose.model('Message',messageSchema)
+const Message = mongoose.model('Message', messageSchema)
 
-export {Message}
+export { Message }
