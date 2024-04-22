@@ -1,28 +1,28 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose'
 
-const gallerySchema= new mongoose.Schema({
-  imagePath:{
-    type:String,
-    required:true
+const gallerySchema = new mongoose.Schema({
+  imagePath: {
+    type: String,
+    required: true
   },
-  alt:{
-    type:String,
-    required:true
+  alt: {
+    type: String,
+    required: true
   },
-  overlayText:{
-    type:String,
-    required:true
+  overlayText: {
+    type: String,
+    required: true
   },
-  category:{
-    type:String,
+  category: {
+    type: String
   }
-},{
-  timestamps:{
+}, {
+  timestamps: {
     createdAt: 'created_at',
-    updatedAt: 'updated_at',
+    updatedAt: 'updated_at'
   }
 })
 
-const Gallery = mongoose.model('Gallery',gallerySchema)
+const Gallery = mongoose.model('Gallery', gallerySchema)
 
-export {Gallery}
+export { Gallery }
