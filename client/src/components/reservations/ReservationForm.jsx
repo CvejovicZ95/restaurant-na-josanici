@@ -4,13 +4,13 @@ import { Navigate, useParams } from "react-router-dom";
 import { useCreateReservation } from "../../hooks/useCreateReservation";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { checkAvailability } from "../../api/reservationApi";
+import { isDateAvailable } from "../../api/reservationApi";
 
 export const ReservationForm = () => {
   const { id } = useParams();
 
   // eslint-disable-next-line
-  const {loading,reservedDates,room}=useGetRoomById(id)
+  const { loading, reservedDates, room } = useGetRoomById(id);
 
   const [completed, setCompleted] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
@@ -62,27 +62,11 @@ export const ReservationForm = () => {
       return;
     }
 
-    const isDateAvailable = async () => {
-      if (
-        Array.isArray(reservedDates.reservedDates) &&
-        reservedDates.reservedDates.length > 0
-      ) {
-        try {
-          const availabilityData = await checkAvailability(
-            arrivalDate,
-            departureDate,
-            roomId,
-          );
-          return availabilityData.available;
-        } catch (error) {
-          console.error("Error in checking room availabilty:", error.message);
-          throw new Error("Error in checking room availabilty");
-        }
-      }
-      return true;
-    };
-
-    const roomAvailable = await isDateAvailable();
+    const roomAvailable = await isDateAvailable(
+      arrivalDate,
+      departureDate,
+      roomId,
+    );
 
     if (!roomAvailable) {
       setErrorMessage(
