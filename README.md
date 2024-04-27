@@ -23,7 +23,7 @@ Project involves creating a website for a restaurant with accommodation, allowin
 
 ## Technologies Used
 
-- React
+- React.js
 - JavaScript
 - Node.js
 - Express
