@@ -26,7 +26,7 @@ Project involves creating a website for a restaurant with accommodation, allowin
 - React.js
 - JavaScript
 - Node.js
-- Express
+- Express.js
 - MongoDB
 - CSS3
 
