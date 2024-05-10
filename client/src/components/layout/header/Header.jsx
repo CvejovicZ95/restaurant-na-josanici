@@ -64,7 +64,7 @@ export const Header = () => {
               <img
                 className="img-logo"
                 style={{ textDecoration: "none" }}
-                src="/images/josanica.png"
+                src="josanica.png"
                 alt="logo"
                 width={"170px"}
                 onClick={scrollToTop}
