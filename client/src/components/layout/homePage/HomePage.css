@@ -1,5 +1,5 @@
 .home {
-  background-image: url("../../../../public/images/randomRes.jpg");
+  background-image: url("../../../../assets/images/randomRes.jpg");
   ;
   background-size: contain;
 }
@@ -85,7 +85,7 @@
 
 @media only screen and (min-width: 250px) and (max-width: 768px) {
   .home {
-    background-image: url("../../../../public/images/randomRes.jpg");
+    background-image: url("../../../../assets/images/randomRes.jpg");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -136,7 +136,7 @@
 
 @media only screen and (min-width: 769px) and (max-width: 1024px) {
   .home {
-    background-image: url("../../../../public/images/randomRes.jpg");
+    background-image: url("../../../../assets/images/randomRes.jpg");
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -148,7 +148,7 @@
 
 @media only screen and (min-width: 1025px) and (max-width: 1199px) {
   .home {
-    background-image: url("../../../../public/images/randomRes.jpg");
+    background-image: url("../../../../assets/images/randomRes.jpg");
     background-size: contain;
     background-repeat: no-repeat;
   }

@@ -16,7 +16,7 @@ export const Gallery = () => {
     <div className="gallery-header" id="gallery">
       <h1>Pogledajte šta Vas čeka u</h1>
       <p>Restoranu Na Jošanici</p>
-      <img className="img-icon" src="/images/icon.png" alt="icon" />
+      <img className="img-icon" src="icon.png" alt="icon" />
       <div className="gallery">
         {foodImages.map((image) => (
           <ImageContainer

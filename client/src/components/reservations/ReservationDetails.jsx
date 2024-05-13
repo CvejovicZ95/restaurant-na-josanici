@@ -65,7 +65,7 @@ export const ReservationDetails = () => {
                 <span>restorannajosanici@gmail.com</span>
                 <FaPhone className="icon" />
                 <span>+381 65 252-8-252</span>
-                <img src="/images/josanica.png" alt="logo" width={"150px"} />
+                <img src="josanica.png" alt="logo" width={"150px"} />
                 <Link to={"/"} onClick={scrollToTop} className="backLink">
                   Početna strana
                 </Link>
