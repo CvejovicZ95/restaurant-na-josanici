@@ -14,7 +14,6 @@ import "./Rooms.css";
 
 import { useAuthContext } from "../../context/authContext";
 import { useGetImages } from "../../hooks/useGetImagesGallery";
-import config from "../../config.json";
 
 export const Rooms = () => {
   const { authUser } = useAuthContext();
@@ -32,7 +31,7 @@ export const Rooms = () => {
           {roomImages.map((room) => (
             <SingleImageRoom
               key={room._id}
-              src={`${config.API_BASE_URL}/images/${room.imagePath}`}
+              src={`${process.env.API_BASE_URL}/images/${room.imagePath}`}
               alt={room.alt}
               overlayText={room.overlayText}
               id={room._id}

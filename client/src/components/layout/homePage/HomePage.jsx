@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import "./HomePage.css";
-import config from "../../../config.json";
 
 export const HomePage = () => {
   useEffect(() => {
@@ -37,7 +36,7 @@ export const HomePage = () => {
         <div className="about-image">
           <img
             className="about-img"
-            src={`${config.API_BASE_URL}/images/image-1713712759476-554792825.png`}
+            src={`${process.env.API_BASE_URL}/images/image-1713712759476-554792825.png`}
             alt="food"
             width={"500px"}
           />

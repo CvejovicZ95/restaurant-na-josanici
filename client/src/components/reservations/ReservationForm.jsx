@@ -103,7 +103,7 @@ export const ReservationForm = () => {
   return (
     <div className="reservation">
       <div className="reservation-img">
-        <img src="/images/reservation.png" alt="reservation" />
+        <img src="reservation.png" alt="reservation" />
       </div>
       <form className="reservation-form" onSubmit={handleSubmit}>
         <h1>Molimo popunite formu za rezervaciju</h1>

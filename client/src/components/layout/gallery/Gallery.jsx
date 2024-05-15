@@ -4,7 +4,6 @@ import { ImageContainer } from "./SingleImage";
 import { useGetImages } from "../../../hooks/useGetImagesGallery";
 import { useAuthContext } from "../../../context/authContext";
 import { ImageUploadForm } from "./ImageUploadForm";
-import config from "../../../config.json";
 
 export const Gallery = () => {
   const { images, handleDeleteImage, uploadHandler } = useGetImages();
@@ -21,7 +20,7 @@ export const Gallery = () => {
         {foodImages.map((image) => (
           <ImageContainer
             key={image._id}
-            src={`${config.API_BASE_URL}/images/${image.imagePath}`}
+            src={`${process.env.API_BASE_URL}/images/${image.imagePath}`}
             alt={image.alt}
             overlayText={image.overlayText}
             id={image._id}
