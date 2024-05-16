@@ -62,7 +62,7 @@ export const Wine = () => {
       <Header />
       <div className={`wine ${loaded ? "fade-in" : ""}`}>
         <div className="wine-grid">
-          <img src="grapes.png" alt="wine" className="wine-image-left" />
+          <img src="/grapes.png" alt="wine" className="wine-image-left" />
           <div className="wine-list">
             <h1>Vina</h1>
             {authUser && <WineAddForm />}
@@ -132,7 +132,7 @@ export const Wine = () => {
               </div>
             ))}
           </div>
-          <img src="wine.png" alt="Wine" className="wine-image-right" />
+          <img src="/wine.png" alt="Wine" className="wine-image-right" />
         </div>
       </div>
       <Footer />

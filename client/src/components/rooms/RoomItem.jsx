@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { scrollToTop } from "../../hooks/useScrollToTop";
-import config from "../../config.json";
 
 export const RoomItem = ({
   room,
@@ -22,7 +21,7 @@ export const RoomItem = ({
   return (
     <div key={room._id} className="room">
       <img
-        src={`${config.API_BASE_URL}/images/${room.imagePath}`}
+        src={`${process.env.API_BASE_URL}/images/${room.imagePath}`}
         alt={`room`}
         width="400px"
       />
