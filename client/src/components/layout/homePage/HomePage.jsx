@@ -15,9 +15,9 @@ export const HomePage = () => {
   return (
     <div className="home" id="logo">
       <div className="homePage">
-        <img className="slide-in" src="dobrodosli.png" alt="dobrodosli" />
+        <img className="slide-in" src="/dobrodosli.png" alt="dobrodosli" />
         <p className="slide-in">Na Jošanici</p>
-        <img className="slide-in" src="domaca.png" alt="domaca" />
+        <img className="slide-in" src="/domaca.png" alt="domaca" />
       </div>
       <div className="about" id="about-res">
         <div className="about-res">

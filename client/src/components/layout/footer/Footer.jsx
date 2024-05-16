@@ -43,7 +43,7 @@ export const Footer = () => {
       <hr />
       <Link to={"/"}>
         <img
-          src="josanica.png"
+          src="/josanica.png"
           onClick={scrollToTop}
           alt="logo"
           width={"180px"}
