@@ -1,4 +1,4 @@
-# Restaraunt website
+# Restaraunt "Na Josanici"
 
 ## Project Overview
 
