@@ -65,7 +65,7 @@ export const Menu = () => {
       <Header />
       <div className={`menu ${loaded ? "fade-in" : ""}`}>
         <div className="menu-grid">
-          <img src="pasta.png" alt="Food" className="food-image-left" />
+          <img src="/pasta.png" alt="Food" className="food-image-left" />
           <div className="food-list">
             {authUser && <MenuAddForm />}
             <h1>Menu</h1>
@@ -138,7 +138,7 @@ export const Menu = () => {
               </div>
             ))}
           </div>
-          <img src="beef.png" alt="Food" className="food-image-right" />
+          <img src="/beef.png" alt="Food" className="food-image-right" />
         </div>
       </div>
       <Footer />
