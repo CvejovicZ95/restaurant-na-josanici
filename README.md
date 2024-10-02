@@ -30,6 +30,19 @@ Project involves creating a website for a restaurant with accommodation, allowin
 - MongoDB
 - CSS3
 
+## Prerequisites / Dependencies
+
+- Node v20.11.1
+- npm 10.2.0
+- MongoDB: You need a running instance of MongoDB.
+
+## Installation and Setup
+
+- git clone <https://github.com/CvejovicZ95/restaurant-na-josanici.git>
+- Install dependencies for both client and server:
+- cd server && npm install
+- cd client && npm install
+
 ## Environment Variables (Server Folder)
 
 - `DATABASE`: MongoDB connection string  
@@ -42,4 +55,5 @@ Project involves creating a website for a restaurant with accommodation, allowin
 - **Server:**
   - `nodemon server`
 - **Client:**
+  - `npm run build:dev`
   - `npm start`

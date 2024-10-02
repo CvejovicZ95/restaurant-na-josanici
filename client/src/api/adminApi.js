@@ -11,7 +11,7 @@ export const loginUser = async (username, password) => {
     if (data.error) {
       throw new Error("Pogresno korisnicko ime ili lozinka");
     }
-    //return data;
+    return data;
   } catch (error) {
     throw new Error(error.message);
   }
